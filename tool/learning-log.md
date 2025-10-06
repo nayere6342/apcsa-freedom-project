@@ -28,7 +28,11 @@ For some context, this program isn't apart perhaps but something to add on the c
 
 ### Challenges:
 
-* One 
+* One challenge that I had was figering out why I had error. knew that the error is line 88 _for example_ but I wouldn't know if it was a syntax error or what because it wouldn't ever show me what went wrong.
+
+* Another challenge I faced was understanding the syntax of phython. Like I knew that java and phython are somewhat able to do the same tasks but phython's syntax at time is complex and hard to read.
+
+* One other challenge I had was that I felt confused a lot thought the process of tinkering.         
 
 ---
 
