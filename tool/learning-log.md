@@ -8,9 +8,9 @@
 
 ### Section #1: (10/6/25)
 
-Now one thing I had issues with was running the code bug free. So that got me to look into further and what I saw was that I needed a add-on type program to check for bugs in the code. Here is the preview of the code:     
+Now one thing I had issues with was running the code bug free. So that got me to look into further and what I saw was that I needed a add-on type program to check for bugs in the code. That's why I wanted to do this to make sure I don't make any mistakes when I'm coding. I know that this code might look to simple to be useful but it helps me out. And if it can do that, I'm going to use the code. Here is the preview of the code if you want to know the logic on how it works to do all this:     
 
-```PY
+```py
 from CODE import FUNCTION
 
 def main(): # define the main part of list FIRST before testing the function
@@ -18,7 +18,7 @@ test_FUNCTION()
 
 def test_FUNCTION():
 if FUNCTION(VALUE1) != VALUE2:
-print("ERROR: INCORRECT VALUE STATE") # error text if not true into termal
+print("ERROR: INCORRECT VALUE STATE") # error text if not true into terimal
 
 if __name__ == "__main__"
 main()
@@ -28,18 +28,24 @@ For some context, this program isn't apart perhaps but something to add on the c
 
 ### Challenges:
 
-* 
+* One 
 
 ---
 
 ### Section #&: (&&/&/&&)
 
+### Challenges:
 
+---
 
-<!-- 
-* Links you used today (websites, videos, etc)
-* Things you tried, progress you made, etc
-* Challenges, a-ha moments, etc
-* Questions you still have
-* What you're going to try next
--->
+### Section #&: (&&/&/&&)
+
+### Challenges:
+
+---
+
+### Section #&: (&&/&/&&)
+
+### Challenges:
+
+---
