@@ -36,7 +36,13 @@ For some context, this program isn't apart perhaps but something to add on the c
 
 ---
 
-### Section #&: (10/28/25)
+### Section #2: (10/28/25)
+
+Since, 
+
+```py
+
+```
 
 ### Challenges:
 
@@ -51,11 +57,19 @@ For some context, this program isn't apart perhaps but something to add on the c
 
 ### Section #&: (&&/&/&&)
 
+```py
+
+```
+
 ### Challenges:
 
 ---
 
 ### Section #&: (&&/&/&&)
+
+```py
+
+```
 
 ### Challenges:
 
