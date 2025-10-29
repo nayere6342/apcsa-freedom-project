@@ -67,7 +67,7 @@ The first thing that the code does is that it first fetches the `url` in the lin
 
 * One challenge that I had was figuring out why I had errors. knew that the error is line 88 _for example_ but I wouldn't know if it was a syntax error or what because it wouldn't ever show me what went wrong.
 
-* Another challenge I faced was understanding the syntax of phython. Like I knew that java and phython are somewhat able to do the same tasks but python's syntax at times is complex and hard to read.
+* Another challenge I faced was understanding how things worked to begin with using python. _For example,_ I'm always use to the syntax of Java & JS _since I have been using it for a while._
 
 * One other challenge I had was that I felt confused a lot though the process of tinkering.         
 
