@@ -38,7 +38,7 @@ For some context, this program isn't apart perhaps but something to add on the c
 
 ### Section #2: (10/28/25)
 
-Since, the last time I log my python code, I hadn't really gotten I big picture of how to really understand my code but one thing I did found out was how to get files to download on my computer using python. Which can be useful for any amount of file sharing. But of course I know this code might look simple on the surface at first but it is more complete on the inside of the code. This is because of the fact that it will check if the file is even on the user's computer and it will show a message for that response. It will print out `Error fetching file from URL: {e}` if something went wrong with the code. _Whether it be by the download itself or an error with the code._ But if the code completed its job then it will print `File '{local_filename}' downloaded successfully.` _{local_filename} i.e the file that just downloaded the on computer._ If you want to see the code, here is the full preview;
+Since the last time I logged into my python code, I hadn't really gotten the big picture of how to really understand my code but one thing I did find out was how to get files to download on my computer using python. Which can be useful for any amount of file sharing. But of course I know this code might look simple on the surface at first but it is more complete on the inside of the code. This is because of the fact that it will check if the file is even on the user's computer and it will show a message for that response. It will print out `Error fetching file from URL: {e}` if something went wrong with the code. _Whether it be by the download itself or an error with the code._ But if the code completed its job then it will print `File '{local_filename}' downloaded successfully.` _{local_filename} i.e the file that just downloaded the on computer._ If you want to see the code, here is the full preview;
 
 ```py
 import requests
@@ -61,7 +61,7 @@ except Exception as e:
     print(f"An error occurred: {e}")
 ```
 
-The first thing that the code does is that it first fetchs the `url` in the line `url = "https://youtube.com/video_file.txt"` that it trying to download then it gives that file a name so that the user knows where it is going to be. In this case it is a file found on youtube and the file type is a text file _(`txt`)_ After that is done, it gives the user the finished file using `with open(local_filename, "wb") as f: for chunk in response.iter_content(chunk_size=8192): f.write(chunk)` which will open the file in the topbar. At the end of it all it will either give back a `downloaded successfully.` or a `An error occurred` if something somehow, went wrong. 
+The first thing that the code does is that it first fetches the `url` in the line `url = "https://youtube.com/video_file.txt"` that it trying to download then it gives that file a name so that the user knows where it is going to be. In this case it is a file found on youtube and the file type is a text file _(`txt`)_ After that is done, it gives the user the finished file using `with open(local_filename, "wb") as f: for chunk in response.iter_content(chunk_size=8192): f.write(chunk)` which will open the file in the topbar. At the end of it all it will either give back a `downloaded successfully.` or an `An error occurred` if something somehow went wrong. 
 
 ### Challenges:
 
@@ -93,5 +93,6 @@ The first thing that the code does is that it first fetchs the `url` in the line
 ### Challenges:
 
 ---
+
 
 
