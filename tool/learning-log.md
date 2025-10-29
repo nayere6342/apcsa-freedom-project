@@ -38,19 +38,19 @@ For some context, this program isn't apart perhaps but something to add on the c
 
 ### Section #2: (10/28/25)
 
-Since, the last time I log my python code, I hadn't really gotten I big picture of how to really understand my code but one thing I did find 
+Since, the last time I log my python code, I hadn't really gotten I big picture of how to really understand my code but one thing I did found out was how to get files to download on my computer using python. Which can be useful for any amount of file sharing. But ofcource I know this code might look simple on the surface at first but it is more complated on the inside of the code. This is because of the fact that it will check if the file is even on the user's computer and it will show a message for that respone. It will print out `Error fetching file from URL: {e}` if something went wrong with the code. _Whether it be by the download itself or and error with the code._ But if the code completed it's job than it will print `File '{local_filename}' downloaded successfully.` _{local_filename} i.e the file that just downloaded the on computer._ If you want to see the code, here is the full preview;
 
 ```py
-import CLASS
+import requests
 
 url = "https://youtube.com/video_file.txt"
 local_filename = "downloaded_file.txt"
 
 try:
-    response = requests.get(url, stream=True) # stream=True for large files
-    response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
+    response = requests.get(url, stream=True) 
+    response.raise_for_status()  
 
-    with open(local_filename, "wb") as f: # 'wb' for writing binary data
+    with open(local_filename, "wb") as f:
         for chunk in response.iter_content(chunk_size=8192):
             f.write(chunk)
     print(f"File '{local_filename}' downloaded successfully.")
