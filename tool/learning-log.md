@@ -38,10 +38,27 @@ For some context, this program isn't apart perhaps but something to add on the c
 
 ### Section #2: (10/28/25)
 
-Since, the last time I log my python code, I hadn't really gotten I big picture of how to really understand my code  
+Since, the last time I log my python code, I hadn't really gotten I big picture of how to really understand my code but one thing I did find 
 
 ```py
+import CLASS
 
+url = "https://youtube.com/video_file.txt"
+local_filename = "downloaded_file.txt"
+
+try:
+    response = requests.get(url, stream=True) # stream=True for large files
+    response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
+
+    with open(local_filename, "wb") as f: # 'wb' for writing binary data
+        for chunk in response.iter_content(chunk_size=8192):
+            f.write(chunk)
+    print(f"File '{local_filename}' downloaded successfully.")
+
+except requests.exceptions.RequestException as e:
+    print(f"Error fetching file from URL: {e}")
+except Exception as e:
+    print(f"An error occurred: {e}")
 ```
 
 ### Challenges:
