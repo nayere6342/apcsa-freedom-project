@@ -38,7 +38,7 @@ For some context, this program isn't apart perhaps but something to add on the c
 
 ### Section #2: (10/28/25)
 
-Since, 
+Since, the last time I log my phyone 
 
 ```py
 
