@@ -7,7 +7,7 @@ For my first blog entry, I have been working with the python-type game engine ca
 
 ### **Code Presentation:**
 
-For a bit of context, since this is eariler in devlopment the code may seem unorgalized. But I'm still fixing it and making changes to the code.
+For a bit of context, since this is earlier in devlopment the code may seem unorgalized. But I'm still fixing it and making changes to the code.
 
 ```py
 ```
