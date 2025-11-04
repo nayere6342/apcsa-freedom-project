@@ -26,13 +26,13 @@ The first thing that happens is creating a class that handles GUI. In this case 
 
 ### **Challenges & Takeaways:**
 
-* One challenge that I got from this was that I issues installing `pip` onto my computer, the thing that help was getting `pip3` which is the updated version of `pip` 
+* One challenge that I got from this was that I issued installing `pip` onto my computer, the thing that help was getting `pip3` which is the updated version of `pip` 
 
 * Other challenge I faced was that I had issues following the official documents by `pygame` itself
 
 * A takeaway I got from this was that I should really start watching more and more videos about `pygame` to really understand how to work with it.
 
-* Last takeaway I got from this was that I need to tinker with `pygame` to help me to understand how to use it.
+* The last takeaway I got from this was that I needed to tinker with `pygame` to help me to understand how to use it.
  
 
 ---
@@ -40,6 +40,7 @@ The first thing that happens is creating a class that handles GUI. In this case 
 [Next](entry02.md)
 
 [Home](../README.md)
+
 
 
 
