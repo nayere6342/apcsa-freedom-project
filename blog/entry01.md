@@ -12,8 +12,8 @@ For a bit of context, since this is earlier in development the code may seem uno
 **Preview:**
 ```py
 window = Tk()
-window. title("new pygame")
-window. resizable(False, False)
+window.title("new pygame window")
+window.resizable(False, False)
 score = 0
 direction = 'down'
 label = Label(window, text="Score:{}".format(score))
@@ -21,6 +21,8 @@ window.mainloop()
 ```
 
 ### **Design Process:** 
+
+The first thing that happeneds is creating a class that handles GUI. In this case using `tkinter` _`Tk()` for short_ in `window = Tk()`. After that, I have to give the window a name here this window's name is _"new pygame window"_ which has a fixed size so that the user can't control the window size by `window.title("new pygame window"), window.resizable(False, False)`. Once that is all done, the score is set to a value `0` then displayed onto the sceen 
 
 ### **Challenges & Takeaways:**
 
