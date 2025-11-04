@@ -22,7 +22,7 @@ window.mainloop()
 
 ### **Design Process:** 
 
-The first thing that happeneds is creating a class that handles GUI. In this case using `tkinter` _`Tk()` for short_ in `window = Tk()`. After that, I have to give the window a name here this window's name is _"new pygame window"_ which has a fixed size so that the user can't control the window size by `window.title("new pygame window"), window.resizable(False, False)`. Once that is all done, the score is set to a value `0` then displayed onto the sceen 
+The first thing that happens is creating a class that handles GUI. In this case using `tkinter` _`Tk()` for short_ in `window = Tk()`. After that, I have to give the window a name here this window's name is _"new pygame window"_ which has a fixed size so that the user can't control the window size by `window.title("new pygame window"), window.resizable(False, False)`. Once that is all done, the score is set to a value `0` then displayed onto the screen 
 
 ### **Challenges & Takeaways:**
 
@@ -40,6 +40,7 @@ The first thing that happeneds is creating a class that handles GUI. In this cas
 [Next](entry02.md)
 
 [Home](../README.md)
+
 
 
 
