@@ -86,7 +86,7 @@ print(p1.x)
 del p1
 ```
 
-First thing that happens the class with the value of 5. Second thing that happens is the `p1` element is addon to the value of 5. The last thing that happens is the class being deleted as soon as it gets printed out.
+First thing that happens the class with the value of 5. Due to the fact that it states the value by useing `x` as the parameter. Second part of the code is the `p1` element is addon to the value of 5. This will be used to store the class that has the value of `x = 5`. From that it meant sound easier to just have `p1` with the value of 5 instead of having it be a class. Because this works by asking to get the class which already has a value of 5. The very last thing that happens is the class which is stored in the `p1` element being deleted as soon as it gets printed out by the last line: `del p1`. Which will just delete `p1` and it will not delete the class since `p1` is just keeping a copy of the class value. So in the end of it all the class will not be affected.  
 ### Challenges:
 
 ---
