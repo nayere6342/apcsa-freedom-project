@@ -2,7 +2,7 @@
 
 ## Tool: **Phython**
 
-## Project: **Unnamed Utility Software**
+## Project: **Flappy Bird**
 
 ---
 
@@ -71,6 +71,23 @@ The first thing that the code does is that it first fetches the `url` in the lin
 
 * One other challenge I had was that I felt confused a lot though the process of tinkering.         
 
+
+---
+
+### Section #&: (11/18/25)
+
+One thing I have been trying to learn is better understanding the syntax of phython since I have been trying to learn it. It's kinda easy for me as of now, like I know how to write class in phython which can be a useful tool for me in the game. Which I used for my last game using just class. So here is the code to know how class work in phython  
+
+```py
+class MyClass:
+  x = 5
+p1 = MyClass()
+print(p1.x)
+del p1
+```
+
+First thing that happens the class with the value of 5. Second thing that happens is the `p1` element is addon to the value of 5. The last thing that happens is the class being deleted as soon as it gets printed out.
+### Challenges:
 
 ---
 
