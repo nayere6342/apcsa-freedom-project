@@ -2,7 +2,7 @@
 
 ## Tool: **Phython**
 
-## Project: **Flappy Bird**
+## Project: **Flappy Bird Remix**
 
 ---
 
