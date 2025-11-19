@@ -74,7 +74,7 @@ The first thing that the code does is that it first fetches the `url` in the lin
 
 ---
 
-### Section #&: (11/18/25)
+### Section #3: (11/18/25)
 
 One thing I have been trying to learn is better understanding the syntax of phython since I have been trying to learn it. It's kinda easy for me as of now, like I know how to write class in phython which can be a useful tool for me in the game. Which I used for my last game using just class. So here is the code to know how class work in phython; 
 
@@ -87,6 +87,7 @@ del p1
 ```
 
 First thing that happens the class with the value of 5. Due to the fact that it states the value by useing `x` as the parameter. Second part of the code is the `p1` element is addon to the value of 5. This will be used to store the class that has the value of `x = 5`. From that it meant sound easier to just have `p1` with the value of 5 instead of having it be a class. Because this works by asking to get the class which already has a value of 5. The very last thing that happens is the class which is stored in the `p1` element being deleted as soon as it gets printed out by the last line: `del p1`. Which will just delete `p1` and it will not delete the class since `p1` is just keeping a copy of the class value. So in the end of it all the class will not be affected.  
+
 ### Challenges:
 
 ---
