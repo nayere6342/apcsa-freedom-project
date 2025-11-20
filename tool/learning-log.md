@@ -1,6 +1,6 @@
 # Tool Learning Log
 
-## Tool: **Phython**
+## Tool: **Phython; Pygame**
 
 ## Project: **Flappy Bird Remix**
 
@@ -90,14 +90,67 @@ First thing that happens the class with the value of 5. Due to the fact that it 
 
 ### Challenges:
 
+* One challenge that I had was figuring out why I had errors. knew that the error is line 88 _for example_ but I wouldn't know if it was a syntax error or what because it wouldn't ever show me what went wrong.
+
+* Another challenge I faced was understanding how things worked to begin with using python. _For example,_ I'm always use to the syntax of Java & JS _since I have been using it for a while._
+
+* One other challenge I had was that I felt confused a lot though the process of tinkering.
+
+* Last challenge I got from this was having the right time to do the work in time so that I don't mass anything up.  
+
 ---
 
-### Section #&: (&&/&/&&)
+### Section #4: (11/20/25)
+
+For this log I have learn a lot in pygame at this point, I understand how the syntax of phython works so that I can use the knowledge for later. So in this part of the code how it works is it opens up a window. That's when this part of the code is ran. The full preview of will be shown here;  
 
 ```py
+main_dir = os.path.split(os.path.abspath(__file__))[0]
+image_name = os.path.join(main_dir, "data", "cursor.png")
+image = pg.image.load(image_name)
+image_cursor = pg.cursors.Cursor(
+    (image.get_width() // 2, image.get_height() // 2), image
+)
 
+
+# Create a bitmap cursor from simple strings
+
+# sized 24x24
+thickarrow_strings = (
+    "XX                      ",
+    "XXX                     ",
+    "XXXX                    ",
+    "XX.XX                   ",
+    "XX..XX                  ",
+    "XX...XX                 ",
+    "XX....XX                ",
+    "XX.....XX               ",
+    "XX......XX              ",
+    "XX.......XX             ",
+    "XX........XX            ",
+    "XX........XXX           ",
+    "XX......XXXXX           ",
+    "XX.XXX..XX              ",
+    "XXXX XX..XX             ",
+    "XX   XX..XX             ",
+    "     XX..XX             ",
+    "      XX..XX            ",
+    "      XX..XX            ",
+    "       XXXX             ",
+    "       XX               ",
+    "                        ",
+    "                        ",
+    "                        ",
+)
+
+bitmap_cursor1 = pg.cursors.Cursor(
+    (24, 24),
+    (0, 0),
+    *pg.cursors.compile(thickarrow_strings, black="X", white=".", xor="o"),
+)
 ```
 
+The very first thing that happens in the code is the the image logic. This tell the computer what the image is and where in the files it is in. By using `image_name = os.path.join(main_dir, "data", "cursor.png")` it know it's data type is a `png`. Once that is done, the second part of the code runs. It first has to go though a resizing process (it being 24 by 24 is why) Then it's get deplayed onto the screen.
 ### Challenges:
 
 ---
