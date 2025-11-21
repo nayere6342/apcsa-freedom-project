@@ -150,7 +150,8 @@ bitmap_cursor1 = pg.cursors.Cursor(
 )
 ```
 
-The very first thing that happens in the code is the the image logic. This tell the computer what the image is and where in the files it is in. By using `image_name = os.path.join(main_dir, "data", "cursor.png")` it know it's data type is a `png`. Once that is done, the second part of the code runs. It first has to go though a resizing process (it being 24 by 24 is why) Then it's get deplayed onto the screen.
+The very first thing that happens in the code is the the image logic. This tell the computer what the image is and where in the files it is in. By using `image_name = os.path.join(main_dir, "data", "cursor.png")` it know it's data type is a `png`. Once that is done, the second part of the code runs. It first has to go though a resizing process (it being 24 by 24 is why) Then it's get deplayed onto the screen. Which the last part of the code that gives color to the pixels on the screen. The preview of the image is called a bitmap. This is a simple way of showing a complated displays so that devlopers can see how a image will show to the user and it color. Which works well with black and white images to give it color. By the previewd shown above, `X` being the pixel set to black while, `.` being white. After that's is finalized, the image gets printed onto the screen.  
+
 ### Challenges:
 
 ---
