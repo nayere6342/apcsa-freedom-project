@@ -154,6 +154,12 @@ The very first thing that happens in the code is the the image logic. This tell 
 
 ### Challenges:
 
+* One challenge that I had was figuring out why I had errors. knew that the error is line 88 _for example_ but I wouldn't know if it was a syntax error or what because it wouldn't ever show me what went wrong.
+
+* One other challenge I had was that I felt confused a lot though the process of tinkering.
+
+* Last challenge I got from this was having the right time to do the work in time so that I don't mass anything up.
+
 ---
 
 ### Section #&: (&&/&/&&)
