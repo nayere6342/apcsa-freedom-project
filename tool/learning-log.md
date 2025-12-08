@@ -164,38 +164,10 @@ The very first thing that happens in the code is the the image logic. This tell 
 
 ### Section #5: (12/8/25)
 
-At this point I am understanding how to piece together parts of the pygame library  
+At this point I understand how to piece together parts of the pygame library into making funcation for a game. Like what I'm doing for the flappy bird game. For a run down of the code, all it does is that it will give the ability to connect a joystick to the game that it's needed in. Here is the full preview of the code;      
 
 ```py
-import pygame
-
-pygame.init()
-
-
-# This is a simple class that will help us print to the screen.
-# It has nothing to do with the joysticks, just outputting the
-# information.
-class TextPrint:
-    def __init__(self):
-        self.reset()
-        self.font = pygame.font.Font(None, 25)
-
-    def tprint(self, screen, text):
-        text_bitmap = self.font.render(text, True, (0, 0, 0))
-        screen.blit(text_bitmap, (self.x, self.y))
-        self.y += self.line_height
-
-    def reset(self):
-        self.x = 10
-        self.y = 10
-        self.line_height = 15
-
-    def indent(self):
-        self.x += 10
-
-    def unindent(self):
-        self.x -= 10
-
+# ...
 
 def main():
     # Set the width and height of the screen (width, height), and name the window.
@@ -273,7 +245,7 @@ def main():
             power_level = joystick.get_power_level()
             text_print.tprint(screen, f"Joystick's power level: {power_level}")
 
-            # Usually axis run in pairs, up/down for one, and left/right for
+
             # the other. Triggers count as axes.
             axes = joystick.get_numaxes()
             text_print.tprint(screen, f"Number of axes: {axes}")
@@ -309,7 +281,7 @@ def main():
         # Go ahead and update the screen with what we've drawn.
         pygame.display.flip()
 
-        # Limit to 30 frames per second.
+
         clock.tick(30)
 
 
@@ -319,6 +291,8 @@ if __name__ == "__main__":
     # on exit if running from IDLE.
     pygame.quit()
 ```
+
+The very first thing the code does is it listens in if the user has pressed anything to later use for input onto the screen whatever the screen has. The input can be checked on by having a indecater on screen. For example a print statment can work here like; `print("Joystick button pressed.")` is a print statment that can be used here. The second thing that done is other event triggers like holding down a button to activte something    
 
 ### Challenges:
 
