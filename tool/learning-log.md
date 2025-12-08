@@ -292,7 +292,7 @@ if __name__ == "__main__":
     pygame.quit()
 ```
 
-The very first thing the code does is it listens in if the user has pressed anything to later use for input onto the screen whatever the screen has. The input can be checked on by having a indecater on screen. For example a print statment can work here like; `print("Joystick button pressed.")` is a print statment that can be used here. The second thing that done is other event triggers like holding down a button to activte something    
+The very first thing the code does is it listens in if the user has pressed anything to later use for input onto the screen whatever the screen has. The input can be checked on by having a indecater on screen. For example a print statment can work here like; `print("Joystick button pressed.")` is a print statment that can be used here. The second thing that done is other event triggers like holding down a button to activate something on screen. Here is something that uses this method: `if event.type == pygame.JOYBUTTONUP: print("Joystick button released.")`. Which is needed if the game in question (like mine) The last part of the code that is needed for the joystick logic is a connection system for if the joystick turns on. Which is simple for this because it's only makes up two parts, first the it gets the instance of the joysticks AKA calling the joystick class shown here, `joysticks[joy.get_instance_id()] = joy` after that is done, it simply prints out the message: "Joystick + (the instance of the class) + connencted" `print(f"Joystick {joy.get_instance_id()} connencted")` After all of that is finished it draws the game pieces and ends the program.  
 
 ### Challenges:
 
@@ -301,6 +301,7 @@ The very first thing the code does is it listens in if the user has pressed anyt
 * One other challenge I had was that I felt confused a lot though the process of tinkering.
 
 * Last challenge I got from this was having the right time to do the work in time so that I don't mass anything up.
+
 ---
 
 
