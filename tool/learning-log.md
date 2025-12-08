@@ -164,7 +164,7 @@ The very first thing that happens in the code is the the image logic. This tell 
 
 ### Section #5: (12/8/25)
 
-At this point I am understanding how 
+At this point I am understanding how to piece together parts of the pygame library  
 
 ```py
 import pygame
