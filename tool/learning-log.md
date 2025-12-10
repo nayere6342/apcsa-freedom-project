@@ -307,9 +307,10 @@ The very first thing the code does is it listens in if the user has pressed anyt
 
 ### Section #6: (12/10/25)
 
-For a bit of context, I still have been learning how to use a joystick connection piece for the game I have been working on so it may seem weird   
+To give a rundown of the code, the main thing that this code does is it simply connects the user's joystick inputs to the game that it's used in.    
 
 ```py
+# ...
             for i in range(axes):
                 axis = joystick.get_axis(i)
                 text_print.tprint(screen, f"Axis {i} value: {axis:>6.3f}")
@@ -342,16 +343,10 @@ For a bit of context, I still have been learning how to use a joystick connectio
 
 
         clock.tick(30)
-
-
-if __name__ == "__main__":
-    main()
-    # If you forget this line, the program will 'hang'
-    # on exit if running from IDLE.
-    pygame.quit()
+# ...
 ```
 
-
+The first thing that is done is the axis range of the joystick. Which is just a variable with a command to get the axis of the joystick `i` in `joystick.get_axis(i)`. Samething with this second part where it fetchs the samething but instead of the range of the axis, it gets the range of the buttons on the joystick with `i` in `button = joystick.get_button(i)`. Which at the end of it will just display the a simple game using the user joystick inputs.   
 
 ### Challenges:
 
