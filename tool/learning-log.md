@@ -162,25 +162,6 @@ The very first thing that happens in the code is the the image logic. This tell 
 
 ---
 
-### Section #6: (12/9/25)
-
-
-
-```py
-
-```
-
-
-
-### Challenges:
-
-* One challenge that I had was figuring out why I had errors. knew that the error is line 88 _for example_ but I wouldn't know if it was a syntax error or what because it wouldn't ever show me what went wrong.
-
-* One other challenge I had was that I felt confused a lot though the process of tinkering.
-
-* Last challenge I got from this was having the right time to do the work in time so that I don't mass anything up.
-
----
 
 ### Section #5: (12/8/25)
 
@@ -324,3 +305,60 @@ The very first thing the code does is it listens in if the user has pressed anyt
 
 ---
 
+### Section #6: (12/10/25)
+
+For a bit of context, I still have been learning how to use a joystick connection piece for the game I have been working on so it may seem weird   
+
+```py
+            for i in range(axes):
+                axis = joystick.get_axis(i)
+                text_print.tprint(screen, f"Axis {i} value: {axis:>6.3f}")
+            text_print.unindent()
+
+            buttons = joystick.get_numbuttons()
+            text_print.tprint(screen, f"Number of buttons: {buttons}")
+            text_print.indent()
+
+            for i in range(buttons):
+                button = joystick.get_button(i)
+                text_print.tprint(screen, f"Button {i:>2} value: {button}")
+            text_print.unindent()
+
+            hats = joystick.get_numhats()
+            text_print.tprint(screen, f"Number of hats: {hats}")
+            text_print.indent()
+
+            # Hat position. All or nothing for direction, not a float like
+            # get_axis(). Position is a tuple of int values (x, y).
+            for i in range(hats):
+                hat = joystick.get_hat(i)
+                text_print.tprint(screen, f"Hat {i} value: {str(hat)}")
+            text_print.unindent()
+
+            text_print.unindent()
+
+        # Go ahead and update the screen with what we've drawn.
+        pygame.display.flip()
+
+
+        clock.tick(30)
+
+
+if __name__ == "__main__":
+    main()
+    # If you forget this line, the program will 'hang'
+    # on exit if running from IDLE.
+    pygame.quit()
+```
+
+
+
+### Challenges:
+
+* One challenge that I had was figuring out why I had errors. knew that the error is line 88 _for example_ but I wouldn't know if it was a syntax error or what because it wouldn't ever show me what went wrong.
+
+* One other challenge I had was that I felt confused a lot though the process of tinkering.
+
+* Last challenge I got from this was having the right time to do the work in time so that I don't mass anything up.
+
+---
