@@ -1,7 +1,35 @@
 # Entry 2
-##### X/X/XX
+Nayer Ebraheim 12/19/25
 
-Text
+## **Intro:**
+
+
+
+### **Code Presentation:**
+
+
+
+**Preview:**
+```py
+
+```
+
+### **Design Process:** 
+
+ 
+
+### **Challenges & Takeaways:**
+
+* 
+
+* 
+
+* 
+
+* 
+ 
+
+---
 
 [Previous](entry01.md) | [Next](entry03.md)
 
