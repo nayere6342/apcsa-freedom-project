@@ -1,6 +1,6 @@
 # Tool Learning Log
 
-## Tool: **Phython; Pygame**
+## Tool: **Phython: Pygame**
 
 ## Project: **Flappy Bird Remix**
 
