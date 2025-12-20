@@ -43,9 +43,9 @@ Now to break down the code the main part of this code that leads the rest is the
 
 ### Challenges & Takeaways:
 
-* A challenge I had while working on this was that it was hard to read the code examples online because I though that pygame was a one to one copy of python but there are a ton of diffences to it even though it's just a libary  
+* A challenge I had while working on this was that it was hard to read the code examples online because I though that pygame was a one to one copy of python but there are a ton of diffences to it even though it's just a libary.  
 
-* 
+* Another challenge that was a real issue was I couldn't find the things I wanted to do like for example a player sprite being able to walk of screen and back. 
 
 * A takeaway I got from this was that I should really start watching more and more videos about `pygame` to really understand how to work with it.
 
