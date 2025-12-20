@@ -39,13 +39,13 @@ class Thingy(pg.sprite.DirtySprite):
 
 ### Design Process:
 
-Now to break down the code the main part of this code that leads the rest is the class itself. What it does is it first gives the sprite an image so that the player can see it, using: `self.image = Thingy.images[0]` to draw that sprite image onto the screen. Now the second thing that happens in this code is the hitbox, this gives the sprite the ability to hit into other things. By using: `self.rect.x = randint(0, screen_dims[0])` and `self.rect.y = randint(0, screen_dims[1])` it can determine the placement of it. The third part of the code that starts is the cords on the sprite. This gives the points where the sprite is suppost to go. And last if not final, the randomizer, it takes the sprite and draws it somewhere random. That's when it will give that sprite a set speed and once that sprite hits the edge of the screen it bounces off at the same speed. With the help of: `if nv >= screen_dims[i] or nv < 0: self.vel[i] = -self.vel[i] nv = self.rect[i] + self.vel[i] self.rect[i] = nv` it is able do that.       
+Now to break down the code the main part of this code that leads the rest is the class itself. What it does is it first gives the sprite an image so that the player can see it, using: `self.image = Thingy.images[0]` to draw that sprite image onto the screen. Now the second thing that happens in this code is the hitbox, this gives the sprite the ability to hit into other things. By using: `self.rect.x = randint(0, screen_dims[0])` and `self.rect.y = randint(0, screen_dims[1])` it can determine the placement of it. The third part of the code that starts is the cords on the sprite. This gives the points where the sprite is supposed to go. And last if not final, the randomizer, it takes the sprite and draws it somewhere random. That's when it will give that sprite a set speed and once that sprite hits the edge of the screen it bounces off at the same speed. With the help of: `if nv >= screen_dims[i] or nv < 0: self.vel[i] = -self.vel[i] nv = self.rect[i] + self.vel[i] self.rect[i] = nv` it is able do that.       
 
 ### Challenges & Takeaways:
 
-* A challenge I had while working on this was that it was hard to read the code examples online because I though that pygame was a one to one copy of python but there are a ton of diffences to it even though it's just a libary.  
+* A challenge I had while working on this was that it was hard to read the code examples online because I thought that pygame was a one to one copy of python but there are a ton of differences to it even though it's just a library.  
 
-* Another challenge that was a real issue was I couldn't find the things I wanted to do like for example a player sprite being able to walk of screen and back. 
+* Another challenge that was a real issue was I couldn't find the things I wanted to do like for example a player sprite being able to walk off screen and back. 
 
 * A takeaway I got from this was that I should really start watching more and more videos about `pygame` to really understand how to work with it.
 
@@ -62,5 +62,6 @@ Now to break down the code the main part of this code that leads the rest is the
 [Previous](entry01.md) | [Next](entry03.md)
 
 [Home](../README.md)
+
 
 
