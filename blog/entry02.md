@@ -3,7 +3,7 @@ Nayer Ebraheim 12/19/25
 
 ### **Intro:**
 
-
+Previously, the main thing I talked about was that the python-type 
 
 ### **Code Presentation:**
 
