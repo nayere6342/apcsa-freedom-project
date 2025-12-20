@@ -1,10 +1,10 @@
-# Entry #2: Level Creation Of Pygame 
+# Entry #2: Level Creation For Pygame 
 ## **Nayer Ebraheim**
 ## **12/19/25**
 
 ### **Intro:**
 
-Previously, the main thing I talked about was that I have been working with the python-type game engine called `pygame`. Which uses python as a frame for this game engine. What this import does is it adds a new class which can be used for game objects. But one major thing I releized was that `pygame` isn't a game engine 
+Previously, the main thing I talked about was that I have been working with the python-type game engine called `pygame`. Which uses python as a frame for this game engine. What this import does is it adds a new class which can be used for game objects. But one major thing I realized was that `pygame` isn't a game engine, but instead a game engine. It's actually a library. What a library in python does, it is just a large group of super classes in a series. To put that aside, the main thing that I will go over is making a level on the window. Which is something I will be using in     
 
 ### **Code Presentation:**
 
@@ -35,3 +35,4 @@ Previously, the main thing I talked about was that I have been working with the 
 [Previous](entry01.md) | [Next](entry03.md)
 
 [Home](../README.md)
+
