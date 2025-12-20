@@ -8,7 +8,7 @@ Previously, the main thing I talked about was that I have been working with the 
 
 ### Code Presentation:
 
-To start off this code presentation, what this code is meant to do is it will draw test sprites onto the screen. With these sprites on screen it needs info. For example a image id for that sprite will give it more character. The next thing that this sprite needs is a hitbox without a hitbox. It will not hit into anything. The last thing for this sprite will have to be it's cords with the use of cords, that will be able to control where it gets drawn. Here is the full preview of the code;     
+To start off this code presentation, what this code is meant to do is it will draw test sprites onto the screen. With these sprites on screen it needs info. For example an image id for that sprite will give it more character. The next thing that this sprite needs is a hitbox without a hitbox. It will not hit into anything. The last thing for this sprite will have to be its cords with the use of cords, that will be able to control where it gets drawn. Here is the full preview of the code;     
 
 **Preview:**
 ```py
@@ -62,5 +62,7 @@ Now to break down the code the main
 [Previous](entry01.md) | [Next](entry03.md)
 
 [Home](../README.md)
+
+
 
 
