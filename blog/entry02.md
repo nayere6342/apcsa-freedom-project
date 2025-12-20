@@ -55,8 +55,13 @@ Now to break down the code the main part of this code that leads the rest is the
 ---
 ### Links:
 
-* 
+* [Pygame Docs](https://www.pygame.org/docs/)
+  
+    * [Pygame Full Repo](https://github.com/pygame)
+      
+* [Entry Doc-Linked (if needed)](https://docs.google.com/document/d/1ZktrQPOmXlntU3Xlj_Qs1HKXNNFs5WKf7y7Y-o1phM0/edit?tab=t.0)
 
+* [APCSA Notes](https://docs.google.com/document/d/1lbayMtmDyH7MgIe7xswbOX3LFzTGywgk4ORcd6p4cm0/edit?tab=t.0)
 ---
 
 [Previous](entry01.md) | [Next](entry03.md)
