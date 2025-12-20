@@ -8,11 +8,32 @@ Previously, the main thing I talked about was that I have been working with the 
 
 ### Code Presentation:
 
-
+To start off this 
 
 **Preview:**
 ```py
--
+class Thingy(pg.sprite.DirtySprite):
+    images: List[pg.Surface] = []
+
+    def __init__(self):
+        ##        pg.sprite.Sprite.__init__(self)
+        pg.sprite.DirtySprite.__init__(self)
+        self.image = Thingy.images[0]
+        self.rect = self.image.get_rect()
+        self.rect.x = randint(0, screen_dims[0])
+        self.rect.y = randint(0, screen_dims[1])
+        # self.vel = [randint(-10, 10), randint(-10, 10)]
+        self.vel = [randint(-1, 1), randint(-1, 1)]
+        self.dirty = 2
+
+    def update(self, *args, **kwargs):
+        for i in [0, 1]:
+            nv = self.rect[i] + self.vel[i]
+            if nv >= screen_dims[i] or nv < 0:
+                self.vel[i] = -self.vel[i]
+                nv = self.rect[i] + self.vel[i]
+            self.rect[i] = nv
+
 ```
 
 ### Design Process:
