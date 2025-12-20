@@ -39,7 +39,7 @@ class Thingy(pg.sprite.DirtySprite):
 
 ### Design Process:
 
-Now to break down the code the main  
+Now to break down the code the main part of this code that leads the rest is the class itself. What it does is it first gives the sprite a image so that the player can see it, using: `self.image = Thingy.images[0]` to draw that sprite image onto the screen. Now the second thing that happens in this code is the hitbox, this gives the sprite the ability to hit into other things. By using: `self.rect.x = randint(0, screen_dims[0])` and `self.rect.y = randint(0, screen_dims[1])` it can determine the placement of it. The third part of the code that starts is the cords on the sprite     
 
 ### Challenges & Takeaways:
 
