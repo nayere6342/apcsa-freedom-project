@@ -1,7 +1,7 @@
 # Entry 3
-##### X/X/XX
+##### 2/2/26
 
-Text
+In this blog
 
 [Previous](entry02.md) | [Next](entry04.md)
 
