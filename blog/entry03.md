@@ -1,4 +1,4 @@
-# Entry #2: Random Object Creater In PyGame
+# Entry #2: _Random Object Creater In PyGame_
 ## Nayer Ebraheim
 ## 2/2/26
 
