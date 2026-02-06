@@ -1,10 +1,10 @@
-# Entry #2: _Sprite Creation In PyGame_
+# Entry #3: _Sprite Creation In PyGame_
 ## Nayer Ebraheim
 ## 2/2/26
 
 ### Intro:
 
-Previously, I had been learning about level creation in pygame and how to bulid one. So now that there is a level to the remix game there has to be things within the level to make it shine. Therefore this level need to objects to be able to work. That's what I'm going over here, about sprites in my game. I will be going over how classes will be able to draw sprites with a X and Y axis.      
+Previously, I had been learning about level creation in pygame and how to build one. So now that there is a level to the remix game there has to be things within the level to make it shine. Therefore this level needs objects to be able to work. That's what I'm going over here, about sprites in my game. I will be going over how classes will be able to draw sprites with a X and Y axis.      
 
 ### Code Presentation:
 
@@ -76,3 +76,5 @@ Now to break down the code
 [Previous](entry02.md) | [Next](entry04.md)
 
 [Home](../README.md)
+
+
