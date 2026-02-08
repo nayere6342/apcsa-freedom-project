@@ -1,5 +1,5 @@
 # Entry #3: _The Use Of Sprite In PyGame_
-## Flappy Bird: _Absolute Remixed_
+## Flappy Bird: Absolute Remixed
 ## Nayer Ebraheim
 ## 2/2/26
 
