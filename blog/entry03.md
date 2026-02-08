@@ -1,4 +1,5 @@
 # Entry #3: _The Use Of Sprite In PyGame_
+## Flappy Bird Absolute Remixed!
 ## Nayer Ebraheim
 ## 2/2/26
 
@@ -48,11 +49,11 @@ class Static(pg.sprite.DirtySprite):
 
 ### Design Process:
 
-Now to break down the code to show how this works. The first thing that happens is the sprite texture for this example is going to use a `egg.png` to show where the sprite is by using `images: List[pg.Surface] = ["egg.png"]` To give it that texture. Now the second part of the code deals with the random X and Y axis of the sprite. So every time the scene gets reloaded the sprite ends up in a different place `self.vel = [randint(-1, 1), randint(-1, 1)]` which will pick a random number between -1 and 1. At the very end of the code is another class that does a lot of the same things as the first class. It has a texture, it has a random X and Y axis but this time the random value is determine using the screen dimensions. Which is a differect way of outputing a random X and Y axis.     
+Now to break down the code to show how this works. The first thing that happens is the sprite texture for this example is going to use a `egg.png` to show where the sprite is by using `images: List[pg.Surface] = ["egg.png"]` To give it that texture. Now the second part of the code deals with the random X and Y axis of the sprite. So every time the scene gets reloaded the sprite ends up in a different place `self.vel = [randint(-1, 1), randint(-1, 1)]` which will pick a random number between -1 and 1. At the very end of the code is another class that does a lot of the same things as the first class. It has a texture, it has a random X and Y axis but this time the random value is determined using the screen dimensions. Which is a different way of outputting a random X and Y axis.     
 
 ### Use Cases: 
 
-One use case I could use in my project is a loot drop system. Where 
+One use case I could use in my project is a loot drop system. Where randomly loot can be drawn into the scene if let's say if the player gets to a certain level in the game or maybe even change how the pipes are drawn into the scene. Like for example having the pipe gap be smaller the higher level a player gets in the game. Which works in this game since it is a remix of the original flappy bird game.     
 
 ### Challenges & Takeaways:
 
@@ -62,7 +63,9 @@ One use case I could use in my project is a loot drop system. Where
 
 * A takeaway I got from this was that I should really start watching more and more videos about `pygame` to really understand how to work with it.
 
-* The last takeaway I got from this was that I needed to tinker with `pygame` to help me to understand how to use it.
+* Another takeaway was that I needed a clear plan of what this game was going to be about since I didn't have one.
+
+* The last takeaway from this was that I needed to tinker with `pygame` to help me to understand how to use it.
  
 
 ---
@@ -80,6 +83,8 @@ One use case I could use in my project is a loot drop system. Where
 [Previous](entry02.md) | [Next](entry04.md)
 
 [Home](../README.md)
+
+
 
 
 
