@@ -8,12 +8,12 @@ Previously, I had been learning about level creation in pygame and how to build 
 
 ### Code Presentation:
 
-To start off this code presentation, this code is meant to be how sprites are drawn into a scene using a class Here is the full preview of the code;     
+To start off this code presentation, this code is meant to be how sprites are drawn into a scene using a class. How it should work is that it first draws a sprite and gives it a texture _(in this case an img tag)_. After that is done, a random integer is picked between a set number. So that at the end of the code the user will be able to see sprites at random parts of the screen. Here is the full preview of the code to learn more;     
 
 **Preview:**
 ```py
 class Thingy(pg.sprite.DirtySprite):
-    images: List[pg.Surface] = []
+    images: List[pg.Surface] = [egg.png]
 
     def __init__(self):
         ##        pg.sprite.Sprite.__init__(self)
@@ -48,7 +48,7 @@ class Static(pg.sprite.DirtySprite):
 
 ### Design Process:
 
-Now to break down the code
+Now to break down the code to show how this works. The first thing that happens is the sprite texture for this example is going to use a _egg.png_ to show where the sprite is. Now the second part of the code  
 
 ### Use Cases: 
 
@@ -80,6 +80,7 @@ One
 [Previous](entry02.md) | [Next](entry04.md)
 
 [Home](../README.md)
+
 
 
 
