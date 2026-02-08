@@ -4,11 +4,11 @@
 
 ### Intro:
 
-Previously, I had been learning about level creation in pygame and how to build one. So now that there is a level to the remix game there has to be things within the level to make it shine. Therefore this level needs objects to be able to work. That's what I'm going over here, about sprites in my game. I will be going over how classes will be able to draw sprites with a X and Y axis. As well as how even, logic can be put into these sprite to turn it into an enemy charactor or maybe even an NPC charactor.      
+Previously, I had been learning about level creation in pygame and how to build one. So now that there is a level to the remix game there has to be things within the level to make it shine. Therefore this level needs objects to be able to work. That's what I'm going over here, about sprites in my game. I will be going over how classes will be able to draw sprites with a X and Y axis. As well as how even, logic can be put into these sprites to turn it into an enemy character or maybe even an NPC character.      
 
 ### Code Presentation:
 
-To start off this code presentation, this code is meant to be how sprites are drawed into a scene using a class Here is the full preview of the code;     
+To start off this code presentation, this code is meant to be how sprites are drawn into a scene using a class Here is the full preview of the code;     
 
 **Preview:**
 ```py
@@ -80,5 +80,6 @@ One
 [Previous](entry02.md) | [Next](entry04.md)
 
 [Home](../README.md)
+
 
 
