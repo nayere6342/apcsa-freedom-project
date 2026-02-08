@@ -13,7 +13,7 @@ To start off this code presentation, this code is meant to be how sprites are dr
 **Preview:**
 ```py
 class Thingy(pg.sprite.DirtySprite):
-    images: List[pg.Surface] = [egg.png]
+    images: List[pg.Surface] = ["egg.png"]
 
     def __init__(self):
         ##        pg.sprite.Sprite.__init__(self)
@@ -36,7 +36,7 @@ class Thingy(pg.sprite.DirtySprite):
 
 
 class Static(pg.sprite.DirtySprite):
-    images: List[pg.Surface] = []
+    images: List[pg.Surface] = ["bird.png"]
 
     def __init__(self):
         pg.sprite.DirtySprite.__init__(self)
@@ -48,11 +48,11 @@ class Static(pg.sprite.DirtySprite):
 
 ### Design Process:
 
-Now to break down the code to show how this works. The first thing that happens is the sprite texture for this example is going to use a _egg.png_ to show where the sprite is. Now the second part of the code  
+Now to break down the code to show how this works. The first thing that happens is the sprite texture for this example is going to use a `egg.png` to show where the sprite is by using `images: List[pg.Surface] = ["egg.png"]` To give it that texture. Now the second part of the code deals with the random X and Y axis of the sprite. So every time the scene gets reloaded the sprite ends up in a different place `self.vel = [randint(-1, 1), randint(-1, 1)]` which will pick a random number between -1 and 1. At the very end of the code is another class that does a lot of the same things as the first class. It has a texture, it has a random X and Y axis but this time the random value is determine using the screen dimensions. Which is a differect way of outputing a random X and Y axis.     
 
 ### Use Cases: 
 
-One
+One use case I could use in my project is a loot drop system. Where 
 
 ### Challenges & Takeaways:
 
