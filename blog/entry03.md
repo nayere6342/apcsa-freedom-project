@@ -1,4 +1,4 @@
-# Entry #3: _Sprite Creation In PyGame_
+# Entry #3: _The Use Of Sprite In PyGame_
 ## Nayer Ebraheim
 ## 2/2/26
 
@@ -8,7 +8,7 @@ Previously, I had been learning about level creation in pygame and how to build 
 
 ### Code Presentation:
 
-To start off this code presentation, this code is meant to be how sprites are Here is the full preview of the code;     
+To start off this code presentation, this code is meant to be how sprites are drawed into a scene using a class Here is the full preview of the code;     
 
 **Preview:**
 ```py
