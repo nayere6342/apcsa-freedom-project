@@ -1,7 +1,8 @@
 # Plan
+---
+## Tool: Pygame
 
-## Tool: 
-## Product: 
+## Product: Flappy Bird: Absolute Remixed!
 
 ---
 
@@ -9,13 +10,17 @@
 
 #### MVP
 
-- [ ] Task (deadline: X)
-  - [ ] Subtask (deadline: X)
+- [ ] Movement Sprites (deadline: 3/4)
+
+- [ ] Title Screen (deadline: 3/2)
+    
+- [x] UI and Art (deadline: 2/10)
+  - [ ] Basic VFX (deadline: X)
 
 #### Beyond MVP
 
-- [ ] Task
-  - [ ] Subtask
+- [ ] Sound Effects 
+  - [ ] Particle physics _(if possible)_
 
 
 <!-- EXAMPLE
