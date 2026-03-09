@@ -360,7 +360,7 @@ The first thing that is done is the axis range of the joystick. Which is just a 
 
 ### Section #8: (3/9/26)
 
-One thing I have learned about my tool is that I how to be able to use `Vector2.move_towards()` to move a ball around the screen. What it does is simple, when the scene gets loaded in. It creates ball at a random direction and once the user clicks on the ball it moves to another direction. Here is the code for that;  
+One thing I have learned about my tool is that I how to be able to use `Vector2.move_towards()` to move a ball around the screen. What it does is simple, when the scene gets loaded in. It creates ball at a random position and once the user clicks on the ball it moves to another position. Here is the code for that;  
 
 ```py
 class Ball:
@@ -406,7 +406,7 @@ while running:
     screen.fill((31, 143, 65))
 ```
 
-The first step inorder to 
+The first step in order to make this work is the ball itself. So how it would work is like this, it first creates a ball class and gives it a set position with a set speed (`self.position = position`, `self.speed = speed`). Now the randomness comes in with the second part of the code where gets a range from `MAX_BALLS`. This is a rule set where everytime a user clicks on screen a new ball will show up at a random position with a random speed applied to it. Using `Vector2` statment. In order to give the ball a random this statment needs to have a `randint` of 0 and the set size of the screen X (`0, int(SCREEN_SIZE.x)`). After all that is done it create a varible named `b` and applies those random positions with the random speeds to that ball.     
 
 ### Challenges:
 
