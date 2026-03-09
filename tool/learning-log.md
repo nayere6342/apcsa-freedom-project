@@ -406,7 +406,7 @@ while running:
     screen.fill((31, 143, 65))
 ```
 
-
+The first step inorder to 
 
 ### Challenges:
 
