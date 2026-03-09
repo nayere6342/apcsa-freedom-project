@@ -358,12 +358,52 @@ The first thing that is done is the axis range of the joystick. Which is just a 
 
 ---
 
-### Section #7: (3/2/26)
+### Section #8: (3/9/26)
 
-
+One thing I have learned about my tool is that I how to be able to use `Vector2.move_towards()` to move a ball around the screen. What it does is simple, when the scene gets loaded in. It creates ball at a random direction and once the user clicks on the ball it moves to another direction. Here is the code for that;  
 
 ```py
+class Ball:
+    def __init__(self, position, speed):
+        self.position = position
+        self.speed = speed
 
+
+def reset():
+    global balls
+    global target_position
+
+    target_position = None
+    balls = []
+    for x in range(MAX_BALLS):
+        pos = pg.Vector2(
+            random.randint(0, int(SCREEN_SIZE.x)), random.randint(0, int(SCREEN_SIZE.y))
+        )
+        speed = random.uniform(MIN_SPEED, MAX_SPEED)
+
+        b = Ball(pos, speed)
+        balls.append(b)
+
+
+reset()
+delta_time = 0
+running = True
+while running:
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            running = False
+
+        if event.type == pg.MOUSEBUTTONUP:
+            target_position = pg.mouse.get_pos()
+
+        if event.type == pg.KEYUP:
+            if event.key == pg.K_ESCAPE:
+                running = False
+
+            if event.key == pg.K_r:
+                reset()
+
+    screen.fill((31, 143, 65))
 ```
 
 
