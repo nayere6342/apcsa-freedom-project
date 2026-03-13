@@ -5,12 +5,12 @@
 
 ### Intro:
 
-    
+Last entry I worked on the use of sprites in Adsolute Remixed, now I am talking about something that is similar too this. I will be talking about liquid sims. What they are is this: A liquid sim is a group of pixels that all have collision enabled to be able to move along there space. One question you may be asking is how will this affect the lag of the game? At a certain point it will start affecting lag but only if there are large sums of liquid on the space. One way I can render the liquid    
 
 ### Code Presentation:
 
 
-
+    
 **Preview:**
 ```py
 def main():
