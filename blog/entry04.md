@@ -1,4 +1,4 @@
-# Entry #4: _The Use Of Sprite In PyGame_
+# Entry #4: _Liquid Sims In PyGame_
 ## Flappy Bird: Absolute Remixed
 ## Nayer Ebraheim
 ## 3/13/26
@@ -14,26 +14,26 @@
 **Preview:**
 ```py
 def main():
-    # initialize and setup screen
+
     pg.init()
     screen = pg.display.set_mode((640, 480), pg.HWSURFACE | pg.DOUBLEBUF)
 
-    # load image and quadruple
+
     imagename = os.path.join(main_dir, "data", "liquid.bmp")
     bitmap = pg.image.load(imagename)
     bitmap = pg.transform.scale2x(bitmap)
     bitmap = pg.transform.scale2x(bitmap)
 
-    # get the image and screen in the same format
+
     if screen.get_bitsize() == 8:
         screen.set_palette(bitmap.get_palette())
     else:
         bitmap = bitmap.convert()
 
-    # prep some variables
+
     anim = 0.0
 
-    # mainloop
+
     xblocks = range(0, 640, 20)
     yblocks = range(0, 480, 20)
     stopevents = pg.QUIT, pg.KEYDOWN, pg.MOUSEBUTTONDOWN
