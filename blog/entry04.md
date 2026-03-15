@@ -5,11 +5,11 @@
 
 ### Intro:
 
-Last entry I worked on the use of sprites in Adsolute Remixed, now I am talking about something that is similar too this. I will be talking about liquid sims. What they are is this: A liquid sim is a group of pixels that all have collision enabled to be able to move along there space. One question you may be asking is how will this affect the lag of the game? At a certain point it will start affecting lag but only if there are large sums of liquid on the space. One way I can render the liquid is by creating a ton of sprites in a small area. But this will cause the game to run slowly and may even crash the game itself. The way to be able to solve for this is by using a bitmap that stores compressed images in a way that doesn't cause lag. Another way I can also optimize the liquid sims is by only being rendered when the player in looking at it.       
+Last entry I worked on the use of sprites in Adsolute Remixed, now I am talking about something that is similar too this. I will be talking about liquid sims. What they are is this: A liquid sim is a group of pixels that all have collision enabled to be able to move along there space. One question you may be asking is how will this affect the lag of the game? At a certain point it will start affecting lag but only if there are large sums of liquid on the space. One way I can render the liquid is by creating a ton of sprites in a small area. But this will cause the game to run slowly and may even crash the game itself. The way to be able to solve for this is by using a bitmap that stores an images in a way that doesn't cause lag. Another way I can also optimize the liquid sims is by only being rendered when the player in looking at it.       
 
 ### Code Presentation:
 
-This is how the code works; the first thing that needs to happen is the liquid image itself. Without it the whole code would not run. After that it scales  
+This is how the code works; the first thing that needs to happen is the liquid image itself. Without it the whole code would not run. After that, it scales the image up then it gets placed into a grid AKA a 2D array. Once that's done, another part of the code will handle the sims themself. The first part of the code just rendered the liquid, and the second part deals with the sim. Here is the code preview to understand how it works;    
     
 **Preview:**
 ```py
