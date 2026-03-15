@@ -5,7 +5,7 @@
 
 ### Intro:
 
-Last entry I worked on the use of sprites in Absolute Remixed, now I am talking about something that is similar to this. I will be talking about liquid sims. What they are is this: A liquid sim is a group of pixels that all have collision enabled to be able to move along their space. One question you may be asking is how will this affect the lag of the game? At a certain point it will start affecting lag but only if there are large sums of liquid on the space. One way I can render the liquid is by creating a ton of sprites in a small area. But this will cause the game to run slowly and may even crash the game itself. The way to be able to solve for this is by using a bitmap that stores an image in a way that doesn't cause lag. Another way I can also optimize the liquid sims is by only being rendered when the player is looking at it.       
+Last entry I worked on the use of sprites in Absolute Remixed, now I am talking about something that is similar to this. I will be talking about liquid sims. What they are is this: A liquid sim is a group of pixels that all have collision enabled to be able to move along their space. One question you may be asking is how will this affect the lag of the game? At a certain point it will start affecting lag but only if there are large sums of liquid on the space. One way I can render the liquid is by creating a ton of sprites in a small area. But this will cause the game to run slowly and may even crash the game itself. The way to solve this is by using a bitmap that stores an image in a way that doesn't cause lag. Another way I can also optimize the liquid sims is by only being rendered when the player is looking at it.       
 
 ### Code Presentation:
 
@@ -55,11 +55,11 @@ def main():
 
 ### Design Process:
 
-To break down the code, the first part of the code that starts is displaying the liquid on the screen. The way this is done is like this; It creates a new image then it assigns it a bitmap so that it can be shown on screen. By using `imagename = os.path.join(main_dir, "data", "liquid.bmp")` & `bitmap = pg.image.load(imagename)` Which when it gets onto the screen, it scales up by `bitmap = pg.transform.scale2x(bitmap)` & `bitmap = pg.transform.scale2x(bitmap)`. What this does is simple, it takes the bitmap which and scales it up by `4x`. Since the image is assigned it the bitmap, if you change the bitmap you change the image. Now, the second part goes as such; Once the bitmap has finished it's cycle it goes through a grid where the sim takes place (`20x20`). By using the `X` and `Y` axis and both values increase by 20 every iteration then that info gets stored for later. Which brings this to the last and final thing, the sim loop. How this works in like this; the loop will iterate through every `X` space with `for x in xblocks`. After that, the sim will caulate the `xpos` for the liquid movement by using a sine wave. Here in this line it shows that: `xpos = (x + (sin(anim + x * 0.01) * 15)) + 20`. Then it does the same thing for the `Y` axis in `ypos` with the same equation: `ypos = (y + (sin(anim + y * 0.01) * 15)) + 20`. After all that is done. the display updates and gives itself a delay `pg.display.flip()` & `time.sleep(0.01)`.           
+To break down the code, the first part of the code that starts is displaying the liquid on the screen. The way this is done is like this; It creates a new image then it assigns it a bitmap so that it can be shown on screen. By using `imagename = os.path.join(main_dir, "data", "liquid.bmp")` & `bitmap = pg.image.load(imagename)` Which when it gets onto the screen, it scales up by `bitmap = pg.transform.scale2x(bitmap)` & `bitmap = pg.transform.scale2x(bitmap)`. What this does is simple, it takes the bitmap which and scales it up by `4x`. Since the image is assigned to the bitmap, if you change the bitmap you change the image. Now, the second part goes as such; Once the bitmap has finished its cycle it goes through a grid where the sim takes place (`20x20`). By using the `X` and `Y` axis and both values increase by 20 every iteration then that info gets stored for later. Which brings this to the last and final thing, the sim loop. How this works is like this; the loop will iterate through every `X` space with `for x in xblocks`. After that, the sim will calculate the `xpos` for the liquid movement by using a sine wave. Here in this line it shows that: `xpos = (x + (sin(anim + x * 0.01) * 15)) + 20`. Then it does the same thing for the `Y` axis in `ypos` with the same equation: `ypos = (y + (sin(anim + y * 0.01) * 15)) + 20`. After all that is done. The display updates and gives itself a delay `pg.display.flip()` & `time.sleep(0.01)`.           
 
-### Skills: 
+### Skills / Reflation: 
 
-One skill I took from this as been the way pygame renders every sprite in game. Since Python itself is heavy on my computer it has been laggy and slow to run. So being able to optimize the game I'm making in pygame is going to be very important to me and how I can test thing in the game. So I have found documents online for optimizing anyone's game in pygame. For example 
+One skill I took from this has been the way pygame renders every sprite in game. Since Python itself is heavy on my computer it has been laggy and slow to run. So being able to optimize the game I'm making in pygame is going to be very important to me and how I can test things in the game. So I have found documents online for optimizing anyone's game in pygame. For example, [Coders Legacy](https://coderslegacy.com/improving-speed-performance-in-pygame/) made a good article on how to convert an image so that it would take up less space. Making it so that it improves performance when loading images onto the screen. By using the `convert_alpha()` function. 
 
 ### Challenges & Takeaways:
 
@@ -75,7 +75,7 @@ One skill I took from this as been the way pygame renders every sprite in game. 
 
 * The last takeaway from this was that I needed to tinker with `pygame` to help me to understand how to use it.
   
-    * In order to truly understand it since for a lot of the code I know how to write is just JS. So being able to learn Python is important for me. 
+    * In order to truly understand it since a lot of the code I know how to write is just JS. So being able to learn Python is important for me. 
  
 
 ---
@@ -99,3 +99,5 @@ One skill I took from this as been the way pygame renders every sprite in game. 
 [Previous](entry03.md) | [Next](entry05.md)
 
 [Home](../README.md)
+
+dddd
