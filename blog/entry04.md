@@ -55,7 +55,7 @@ def main():
 
 ### Design Process:
 
-
+To break down the code, the first part of the code that starts is displaying the liquid on the screen. The way this is done is like this; It creates a new image then it assigns it a bitmap so that it can be shown on screen. By using `imagename = os.path.join(main_dir, "data", "liquid.bmp")` and `bitmap = pg.image.load(imagename)` Which when it gets onto the screen, it scales up by `bitmap = pg.transform.scale2x(bitmap)` and `bitmap = pg.transform.scale2x(bitmap)`. What this does is simple, it takes the bitmap which and scales it up by `4x`. Since the image is assigned it the bitmap, if you change the bitmap you change the image. Now, the second part goes as such; Once the bitmap has finished it's cycle it goes through a grid where the sim takes place (`20x20`). By using the `X` and `Y` axis and both values increase by 20 every iteration then that info gets stored for later. Which brings this to the last and final thing, the sim loop. How this works in like this; the loop will iterate through every `X` space with `for x in xblocks`. After that, the sim will caulate the `xpos` for the liquid movement by using a sine wave. Here in this line it shows that: `xpos = (x + (sin(anim + x * 0.01) * 15)) + 20`. Then it does the same thing          
 
 ### Skills: 
 
