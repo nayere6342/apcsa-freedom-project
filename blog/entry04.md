@@ -1,4 +1,4 @@
-# Entry #4: _Liquid Sims In PyGame_
+# Entry #4: _PyGame Effects Using Liquid Sims_
 ## Flappy Bird: Absolute Remixed
 ## Nayer Ebraheim
 ## 3/13/26
@@ -59,7 +59,7 @@ To break down the code, the first part of the code that starts is displaying the
 
 ### Skills: 
 
-
+One skill I took from this as been the way pygame renders every sprite in game. Since Python itself is heavy on my computer it has been laggy and slow to run. So being able to optimize the game I'm making in pygame is going to be very important to me and how I can test thing in the game. So I have found documents online for optimizing anyone's game in pygame. For example 
 
 ### Challenges & Takeaways:
 
