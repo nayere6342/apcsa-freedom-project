@@ -5,11 +5,11 @@
 
 ### Intro:
 
-Last entry I worked on the use of sprites in Adsolute Remixed, now I am talking about something that is similar too this. I will be talking about liquid sims. What they are is this: A liquid sim is a group of pixels that all have collision enabled to be able to move along there space. One question you may be asking is how will this affect the lag of the game? At a certain point it will start affecting lag but only if there are large sums of liquid on the space. One way I can render the liquid is by creating a ton of sprites in a small area. But this will cause the game to run slowly and may even crash the game itself. The way to be able to solve for this is by using a bitmap that stores compressed images in a way that doesn't cause lag. Another way I can also optimize the liquid sims is by only being rendered when the player in looking at it or       
+Last entry I worked on the use of sprites in Adsolute Remixed, now I am talking about something that is similar too this. I will be talking about liquid sims. What they are is this: A liquid sim is a group of pixels that all have collision enabled to be able to move along there space. One question you may be asking is how will this affect the lag of the game? At a certain point it will start affecting lag but only if there are large sums of liquid on the space. One way I can render the liquid is by creating a ton of sprites in a small area. But this will cause the game to run slowly and may even crash the game itself. The way to be able to solve for this is by using a bitmap that stores compressed images in a way that doesn't cause lag. Another way I can also optimize the liquid sims is by only being rendered when the player in looking at it.       
 
 ### Code Presentation:
 
-
+This is how the code works; the first thing that needs to happen is the liquid image itself. Without it the whole code would not run. After that it scales  
     
 **Preview:**
 ```py
@@ -63,15 +63,19 @@ def main():
 
 ### Challenges & Takeaways:
 
-* A challenge I had while working on this was that it was hard to read the code examples online because I thought that pygame was a one to one copy of python but there are a ton of differences to it even though it's just a library.  
+* A challenge I had while working on this was that it was hard to read the code examples online because I thought that pygame was a one to one copy of python but there are a ton of differences to it even though it's just a library.
+
+    * I know that pygame is meant to be for smaller projects but when going into it I didn't know how to be able to read just because it was in Python. But I was able to go through it by first learning the Python syntax
 
 * Another challenge that was a real issue was I couldn't find the things I wanted to do like for example a player sprite being able to walk off screen and back. 
 
-* A takeaway I got from this was that I should really start watching more and more videos about `pygame` to really understand how to work with it.
-
-* Another takeaway was that I needed a clear plan of what this game was going to be about since I didn't have one.
+* Another takeaway was that I needed a clear plan of what this game was going to be about since I didn't have one. By having one I would be able to know how I should start the game.
+  
+    * Since, without a clear plan I wouldn't be able to know what to do with the game or even the MVP. Just because flappy bird is a simple game doesn't mean I should have a plan on what I should do. 
 
 * The last takeaway from this was that I needed to tinker with `pygame` to help me to understand how to use it.
+  
+    * In order to truly understand it since for a lot of the code I know how to write is just JS. So being able to learn Python is important for me. 
  
 
 ---
@@ -83,7 +87,7 @@ def main():
 
     * [Pygame Examples](https://github.com/pygame/pygame/tree/main/examples)
 
-* [Pygame Patch Notes/Updates](https://www.pygame.org/news)
+* [Pygame Patch Notes](https://www.pygame.org/news)
 
 * [Pygame Wiki](https://www.pygame.org/wiki/)
 
