@@ -416,5 +416,24 @@ The first step in order to make this work is the ball itself. So how it would wo
   
 * Last challenge I got from this was having the right time to do the work in time so that I don't mass anything up.
 
+### Section #9: (3/23/26)
+
+
+
+```py
+
+```
+
+
+
+### Challenges:
+
+* One challenge that I had was figuring out why I had errors. knew that the error is line 88 _for example_ but I wouldn't know if it was a syntax error or what because it wouldn't ever show me what went wrong.
+
+* Having a way to make the main game loop
+  
+* Last challenge I got from this was having the right time to do the work in time so that I don't mass anything up.
+
+
 
 ---
