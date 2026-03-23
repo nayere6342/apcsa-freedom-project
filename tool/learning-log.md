@@ -450,7 +450,7 @@ proj = Projectile(750, 300, screen_rect)
 all_sprites.add(proj)
 ```
 
-The reason why this works is because it creates a moving box then it defines another statement saying if the entire object is off screen then destroys that object so that it can be created again. This is fine because the game will not have to have that object in stored memory since it is off screen and the game will not need it in the future. So it better    
+The reason why this works is because it creates a moving box then it defines another statement saying if the entire object is off screen then destroys that object so that it can be created again. This is fine because the game will not have to have that object in stored memory since it is off screen and the game will not need it in the future. So it better performance overall.     
 
 ### Challenges:
 
