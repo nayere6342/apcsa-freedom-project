@@ -418,7 +418,7 @@ The first step in order to make this work is the ball itself. So how it would wo
 
 ### Section #9: (3/23/26)
 
-Something I learn is how having to use rendering programs to be able to make the game run better. 
+Something I learn is how having to use rendering programs to be able to make the game run better. How the system works will be like this; the object will only be rendered in if the player is looking at it. So as soon as the object leaves the screen, it will be destroyed. But this system will only work with non-player objects. So that if the player goes off screen the player will not be destoryed.
 
 ```py
 
@@ -433,7 +433,5 @@ Something I learn is how having to use rendering programs to be able to make the
 * Having a way to make the main game loop
   
 * Last challenge I got from this was having the right time to do the work in time so that I don't mass anything up.
-
-
 
 ---
