@@ -418,13 +418,39 @@ The first step in order to make this work is the ball itself. So how it would wo
 
 ### Section #9: (3/23/26)
 
-Something I learn is how having to use rendering programs to be able to make the game run better. How the system works will be like this; the object will only be rendered in if the player is looking at it. So as soon as the object leaves the screen, it will be destroyed. But this system will only work with non-player objects. So that if the player goes off screen the player will not be destoryed.
+Something I learn is how having to use rendering programs to be able to make the game run better. How the system works will be like this; the object will only be rendered in if the player is looking at it. So as soon as the object leaves the screen, it will be destroyed. But this system will only work with non-player objects. So that if the player goes off screen the player will not be destoryed. This system is called: Frustum Culling. Here is an example of this system being used.
 
 ```py
+class Projectile(pygame.sprite.Sprite):
+    def __init__(self, x, y, screen_rect):
+        super().__init__()
 
+        self.image = pygame.Surface((10, 10))
+        self.image.fill((255, 0, 0))
+        self.rect = self.image.get_rect(center=(x, y))
+        
+        self.screen_rect = screen_rect
+        self.speed = 7
+
+    def update(self):
+
+        self.rect.x += self.speed
+
+        if not self.rect.colliderect(self.screen_rect):
+            self.kill()  # Removes sprite from all Groups and marks for deletion
+            print("Object destroyed: moved off-screen.")
+
+
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+screen_rect = screen.get_rect()
+all_sprites = pygame.sprite.Group()
+
+proj = Projectile(750, 300, screen_rect)
+all_sprites.add(proj)
 ```
 
-
+The reason why this works is because it creates a moving box then it defines another statement saying if the entire object is off screen then destroys that object so that it can be created again. This is fine because the game will not have to have that object in stored memory since it is off screen and the game will not need it in the future. So it better    
 
 ### Challenges:
 
