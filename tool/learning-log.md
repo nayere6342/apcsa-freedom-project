@@ -418,7 +418,7 @@ The first step in order to make this work is the ball itself. So how it would wo
 
 ### Section #9: (3/23/26)
 
-
+Something I learn is how having to use rendering programs to be able to make the game run better. 
 
 ```py
 
