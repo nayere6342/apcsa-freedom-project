@@ -4,7 +4,7 @@ by **Nayer Ebraheim**
 ## Context
 I am a student at [HSTAT](https://www.hstat.org/) in the [Software Engineering Program](https://hstatsep.github.io/). The "Freedom Project" for AP Computer Science A is a year-long project all about making anything using technology.
 
-For my project, I chose to independently study **X** in order to help me make **X**.
+For my project, I chose to independently study **pygame** in order to help me make **a flappy bird remix type game**.
 
 ## Links
 
@@ -20,7 +20,7 @@ For my project, I chose to independently study **X** in order to help me make **
 
 
 ## Blog
-Below you will find my blog about how I made my project.
+Below you will find my blog about how I made my project. How I bulit it up.
 
 * [Entry 1](blog/entry01.md)
 * [Entry 2](blog/entry02.md)
