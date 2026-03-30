@@ -10,12 +10,12 @@
 
 #### MVP
 
-- [ ] Movement Sprites (deadline: 3/4)
+- [x] Movement Sprites (deadline: 3/27)
 
-- [ ] Title Screen (deadline: 3/2)
+- [ ] Title Screen (deadline: 4/1)
     
 - [x] UI and Art (deadline: 2/10)
-  - [ ] Basic VFX (deadline: X)
+  - [ ] Basic VFX (deadline: 4/3)
 
 #### Beyond MVP
 
