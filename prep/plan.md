@@ -22,7 +22,7 @@
 - [ ] Sound Effects 
   - [ ] Particle physics _(if possible)_
 
-
+(in the slides put a fun fact slide)
 <!-- EXAMPLE
 
 ## Tool: APIs
