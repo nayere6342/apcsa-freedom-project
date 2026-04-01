@@ -20,17 +20,7 @@ main_player = pygame.transform.scale(main_player,
                                      (main_player.get_width() - 100,
                                      main_player.get_height() - 80))
 
-class Pipe(pygame.sprite.Sprite):
-    def __init__(self, x, y):
-        super().__init__()
-    hitbox = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
-    random.randrange(1,100) == e
-    z -= 1
-    target = pygame.Rect(z, 0, 160, 180)
-    collision = hitbox.colliderect(target)
-    pygame.draw.rect(screen, (255 * collision, 255, 0), target)
-    self.rect.x = x
-    self.rect.y = y
+
   
 
 
@@ -39,6 +29,14 @@ clock = pygame.time.Clock()
 while running:
     screen.fill((255, 255, 255))
     screen.blit(main_player, (x, y))
+
+
+    hitbox = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
+    random.randrange(1,100) == e
+    z -= 1
+    target = pygame.Rect(z, 0, 160, 180)
+    collision = hitbox.colliderect(target)
+    pygame.draw.rect(screen, (255 * collision, 255, 0), target)
 
     keys = pygame.key.get_pressed()
     y += 2
