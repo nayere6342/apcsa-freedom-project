@@ -15,9 +15,14 @@ o = 5
 z = 300
 e = 0
 
+main_player = pygame.image.load('obj.png').convert()
+main_player = pygame.transform.scale(main_player,
+                                     (main_player.get_width() - 100,
+                                     main_player.get_height() - 80))
+
 class Pipe(pygame.sprite.Sprite):
     def __init__(self, x, y):
-    super().__init__()
+        super().__init__()
     hitbox = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
     random.randrange(1,100) == e
     z -= 1
@@ -27,10 +32,7 @@ class Pipe(pygame.sprite.Sprite):
     self.rect.x = x
     self.rect.y = y
   
-main_player = pygame.image.load('obj.png').convert()
-main_player = pygame.transform.scale(main_player,
-                                     (main_player.get_width() - 100,
-                                     main_player.get_height() - 80))
+
 
 running = True
 clock = pygame.time.Clock()
@@ -52,3 +54,4 @@ while running:
     clock.tick(90)
 
 pygame.quit()
+
