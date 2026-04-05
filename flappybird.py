@@ -1,55 +1,85 @@
+# loaders
 import pygame
-import pygbag
 import random
-
-
-    # z -= 1
-    # target = pygame.Rect(z, 0, 160, 180)
-
+random.random()
 pygame.init()
-screen = pygame.display.set_mode((650, 650))
+screen = pygame.display.set_mode((1600, 1000))
 
+# vars
 x = 0
 y = 90
 o = 5
 z = 300
-e = 0
+a = 330
+d = 330
 
-main_player = pygame.image.load('obj.png').convert()
+# game objects
+main_player = pygame.image.load('Objects/obj.png').convert()
 main_player = pygame.transform.scale(main_player,
                                      (main_player.get_width() - 100,
-                                     main_player.get_height() - 80))
+                                      main_player.get_height() - 80))
+
+pipe = pygame.image.load('Objects/pipe.png').convert()
+pipe = pygame.transform.scale(pipe,
+                                     (pipe.get_width() - 100,
+                                      pipe.get_height() - 80))
 
 
-  
-
-
+# loop logic
 running = True
 clock = pygame.time.Clock()
 while running:
-    screen.fill((255, 255, 255))
+    screen.fill((239, 239, 239))
     screen.blit(main_player, (x, y))
 
-
-    hitbox = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
-    random.randrange(1,100) == e
+    # hit-box logic & pipe mov
+    hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
     z -= 1
-    target = pygame.Rect(z, 0, 160, 180)
-    collision = hitbox.colliderect(target)
-    pygame.draw.rect(screen, (255 * collision, 255, 0), target)
 
+    # pipe 1
+    class Pipe(pygame.sprite.Sprite):
+        def __init__(self, x, y):
+            super().__init__()
+            self.image = pygame.image.load('Objects/pipe.png').convert()
+            self.rect = self.image.get_rect()
+            self.rect.topleft = (z, a)
+            self.velocity = random.randint(1, 1)
+
+        def update(self):
+            self.rect.y += self.velocity
+
+    pipe_group = pygame.sprite.Group()
+
+    for i in range(1):
+        pipe = Pipe(i+400, -20)
+        pipe_group.add(pipe)
+    pipe_group.draw(screen)
+    pipe_group.update()
+
+
+    # player inputs
     keys = pygame.key.get_pressed()
     y += 2
+
     if keys[pygame.K_UP]:
         y -= o
     if keys[pygame.K_DOWN]:
         y += o
+    if keys[pygame.K_w]:
+        y -= o
+    if keys[pygame.K_s]:
+        y += o
 
+    # allows the play window to be cut
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    # displays everything on the window
     pygame.display.flip()
+
+    # fps
     clock.tick(90)
 
-pygame.quit()
 
+pygame.quit()
