@@ -5,69 +5,65 @@ random.random()
 pygame.init()
 screen = pygame.display.set_mode((1600, 1000))
 
+# main menu
+
 # vars
 x = 0
 y = 90
 o = 10
 z = 300
 a = 330
-d = 230
 pipe_group = pygame.sprite.Group()
-pipe_group2 = pygame.sprite.Group()
+
 
 # game objects
-main_player = pygame.image.load('Objects/obj.png').convert()
-main_player = pygame.transform.scale(main_player,
-                                     (main_player.get_width() - 100,
-                                      main_player.get_height() - 80))
+main_player = pygame.image.load('Objects/flappy.png').convert_alpha()
+main_player = pygame.transform.scale(main_player, (150, 100))
 
-pipe = pygame.image.load('Objects/pipe.png').convert()
-pipe = pygame.transform.scale(pipe,
-                                     (pipe.get_width() - 100,
-                                      pipe.get_height() - 80))
+pipe = pygame.image.load('Objects/pipe.png').convert_alpha()
+# pipe = pygame.transform.scale(pipe, (60, 60))
 
+
+# pipe math
+class Pipe(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('Objects/pipe.png').convert()
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (z, a)
+        self.velocity = -.5
+
+
+    def update(self):
+        self.rect.y += self.velocity
 
 # loop logic
 running = True
 clock = pygame.time.Clock()
 while running:
+
+    # screen base setup
     screen.fill((239, 100, 239))
     screen.blit(main_player, (x, y))
+
+    # displays everything on the window
+    pipe_group.update()
+    pipe_group.draw(screen)
+    pygame.display.flip()
 
     # hit-box logic & pipe mov
     hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
     z -= 1
 
-
-
-    # pipe bot
-    class Pipe(pygame.sprite.Sprite):
-        def __init__(self, x, y):
-            pygame.sprite.Sprite.__init__(self)
-            self.image = pygame.image.load('Objects/pipe.png').convert()
-            self.rect = self.image.get_rect()
-            self.rect.topleft = (z, a)
-            self.velocity = random.randint(1, 1)
-
-        def update(self):
-            self.rect.y += self.velocity
-
-    sillynum = random.randint(1, 5)
-
-    # mov loop
+    # spawn pipe
     for i in range(1):
-        if (sillynum == 2):
-            pipe_group.add(pipe)
-        pipe = Pipe(i + 400, -20)
+        if random.randint(1, 100) == 1:
+            pipe_group.add(Pipe(1600, random.randint(0, 500)))
 
 
-
-
-
-
-    pipe_group.update()
-    pipe_group.draw(screen)
-
+    # mov pipe
+        pipe = Pipe(400, -20)
+        pipe_group.add(pipe)
 
 
     # player inputs
@@ -88,11 +84,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # displays everything on the window
-    pygame.display.flip()
-
     # fps
     clock.tick(90)
-
 
 pygame.quit()
