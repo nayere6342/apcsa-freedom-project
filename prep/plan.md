@@ -12,7 +12,7 @@
 
 - [x] Movement Sprites (deadline: 3/27)
 
-- [ ] Title Screen (deadline: 4/1)
+- [x] Title Screens (deadline: 4/1)
     
 - [x] UI and Art (deadline: 2/10)
   - [ ] Basic VFX (deadline: 4/3)
