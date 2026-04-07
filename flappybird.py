@@ -1,14 +1,14 @@
 # loaders
 import pygame
 import random
+import menu
 random.random()
 pygame.init()
-screen = pygame.display.set_mode((1600, 1000))
+screen = pygame.display.set_mode((1435, 1000))
 
-# main menu
 
 # vars
-x = 0
+x = 25
 y = 90
 o = 10
 z = 300
@@ -16,12 +16,22 @@ a = 330
 pipe_group = pygame.sprite.Group()
 
 
+# main menu
+pygame.display.set_caption('Flappy Bird: Absolute Remixed')
+Play = pygame.image.load('Objects/play_N.png').convert_alpha()
+Name = pygame.image.load('Objects/title.png').convert_alpha()
+Name = pygame.transform.scale(Name, (670, 550))
+Play = pygame.transform.rotate(Play, -10)
+Bstart = menu.Press(950, 640, Play)
+Bname = menu.Press(30, 10, Name)
+
+
 # game objects
 main_player = pygame.image.load('Objects/flappy.png').convert_alpha()
 main_player = pygame.transform.scale(main_player, (150, 100))
 
+
 pipe = pygame.image.load('Objects/pipe.png').convert_alpha()
-# pipe = pygame.transform.scale(pipe, (60, 60))
 
 
 # pipe math
@@ -33,17 +43,20 @@ class Pipe(pygame.sprite.Sprite):
         self.rect.topleft = (z, a)
         self.velocity = -.5
 
-
     def update(self):
         self.rect.y += self.velocity
 
-# loop logic
+
+# main game loop
 running = True
 clock = pygame.time.Clock()
 while running:
 
     # screen base setup
     screen.fill((239, 100, 239))
+    if Bstart.draw(screen):
+        print("yay")
+    Bname.draw(screen)
     screen.blit(main_player, (x, y))
 
     # displays everything on the window
