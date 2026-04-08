@@ -9,11 +9,12 @@ screen = pygame.display.set_mode((1435, 1000))
 
 # vars
 x = 25
-y = 90
+y = 0
 o = 10
 z = 300
 a = 330
 pipe_group = pygame.sprite.Group()
+play_space = "main"
 
 
 # main menu
@@ -22,23 +23,23 @@ Play = pygame.image.load('Objects/play_N.png').convert_alpha()
 Name = pygame.image.load('Objects/title.png').convert_alpha()
 Name = pygame.transform.scale(Name, (670, 550))
 Play = pygame.transform.rotate(Play, -10)
+
 Bstart = menu.Press(950, 640, Play)
 Bname = menu.Press(30, 10, Name)
 
 
 # game objects
 main_player = pygame.image.load('Objects/flappy.png').convert_alpha()
-main_player = pygame.transform.scale(main_player, (150, 100))
-
+main_player = pygame.transform.scale(main_player, (170, 100))
 
 pipe = pygame.image.load('Objects/pipe.png').convert_alpha()
 
 
 # pipe math
 class Pipe(pygame.sprite.Sprite):
-    def __init__(self, x, y):
+    def __init__(self, x, y, flipped=False):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('Objects/pipe.png').convert()
+        self.image = pygame.image.load('Objects/pipe.png').convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.topleft = (z, a)
         self.velocity = -.5
@@ -53,31 +54,37 @@ clock = pygame.time.Clock()
 while running:
 
     # screen base setup
-    screen.fill((239, 100, 239))
-    if Bstart.draw(screen):
-        print("yay")
-    Bname.draw(screen)
-    screen.blit(main_player, (x, y))
+    screen.fill((239, 239, 239))
 
-    # displays everything on the window
-    pipe_group.update()
-    pipe_group.draw(screen)
-    pygame.display.flip()
+    # menu setup screen
+    if play_space == "main":
+        Bname.draw(screen)
+        if Bstart.draw(screen):
+            play_space = "game"
+            print("yay")
+    if play_space == "game":
+        screen.blit(main_player, (x, y))
+        pipe_group.update()
+        pipe_group.draw(screen)
 
     # hit-box logic & pipe mov
-    hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
-    z -= 1
+    if play_space == "game":
+        hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
+        for pipe in pipe_group:
+            if hit_box.colliderect(pipe.rect):
+                # print("yahoo")
+                new_pipe = Pipe(pipe.rect.x, pipe.rect.y, flipped=True)
+                pipe_group.add(new_pipe)
 
-    # spawn pipe
-    for i in range(1):
-        if random.randint(1, 100) == 1:
-            pipe_group.add(Pipe(1600, random.randint(0, 500)))
-
+        # spawn pipe
+        z -= 1
+        for i in range(1):
+            if random.randint(1, 100) == 1:
+                pipe_group.add(Pipe(1600, random.randint(0, 500)))
 
     # mov pipe
         pipe = Pipe(400, -20)
         pipe_group.add(pipe)
-
 
     # player inputs
     keys = pygame.key.get_pressed()
@@ -96,6 +103,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    # displays everything on the window
+    pygame.display.flip()
 
     # fps
     clock.tick(90)
