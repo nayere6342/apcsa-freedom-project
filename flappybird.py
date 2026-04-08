@@ -11,7 +11,9 @@ y = 0
 o = 10
 a = 10
 d = 10
+p = 0
 pipe_group = pygame.sprite.Group()
+coin_group = pygame.sprite.Group()
 play_space = "main"
 
 # main menu
@@ -28,7 +30,7 @@ Bname = menu.Press(30, 10, Name)
 main_player = pygame.image.load('Objects/flappy.png').convert_alpha()
 main_player = pygame.transform.scale(main_player, (170, 100))
 point = pygame.image.load('Objects/coin.png').convert_alpha()
-point = pygame.transform.scale(point, (70, 10))
+point = pygame.transform.scale(point, (100, 90))
 point2 = pygame.image.load('Objects/coolcoin.png').convert_alpha()
 point2 = pygame.transform.scale(point2, (70, 10))
 
@@ -49,6 +51,17 @@ class Pipe(pygame.sprite.Sprite):
         self.rect.x += self.velocity
 
 
+# class Coin(pygame.sprite.Sprite):
+#     def __init__(self, a, d):
+#         super().__init__()
+#         point = pygame.image.load('Objects/coin.png').convert_alpha()
+#         self.rect = point.get_rect()
+#         self.rect.topleft = (a, d)
+#         self.velocity = -5
+#
+#     def update(self):
+#         self.rect.x += self.velocity
+
 # main game loop
 running = True
 clock = pygame.time.Clock()
@@ -59,8 +72,8 @@ while running:
 
     # menu screen mode
     if play_space == "main":
+        y = 300
         Bname.draw(screen)
-        y-= 30
         if Bstart.draw(screen):
             play_space = "game"
 
@@ -78,17 +91,26 @@ while running:
                 play_space = "over"
                 print("yahoo")
 
+        for point in coin_group:
+            if hit_box.colliderect(point.rect):
+                p += 1
+                # (destroy that one coin)
+                print(p)
+                print("money")
+
         # spawn top bottom pipe
         if random.randint(1, 60) == 1:
             pipe_x = 1435
-            gap = 250
-            bottom_y = random.randint(400, 700)
+            # prevent overlap (only spawn if last pipe is far enough)
+            if len(pipe_group) == 0 or pipe_group.sprites()[-1].rect.x < 1000:
+                gap = 350
+                bottom_y = random.randint(400, 700)
 
-            pipeB = Pipe(pipe_x, bottom_y, flipped=False)
-            pipeT = Pipe(pipe_x, bottom_y - gap - pipeB.image.get_height(), flipped=True)
+                pipeB = Pipe(pipe_x, bottom_y, flipped=False)
+                pipeT = Pipe(pipe_x, bottom_y - gap - pipeB.image.get_height(), flipped=True)
 
-            pipe_group.add(pipeB)
-            pipe_group.add(pipeT)
+                pipe_group.add(pipeB)
+                pipe_group.add(pipeT)
 
     # player movement
     keys = pygame.key.get_pressed()
@@ -99,7 +121,9 @@ while running:
     if keys[pygame.K_DOWN] or keys[pygame.K_s]:
         y += o
 
-    # if play_space == "over":
+    if play_space == "over":
+        bob = pygame.image.load('Objects/flappy.png').convert_alpha()
+        bob = pygame.transform.scale(bob, (170, 100))
 
     # quit screen
     for event in pygame.event.get():
