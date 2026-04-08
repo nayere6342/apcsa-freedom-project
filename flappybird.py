@@ -9,8 +9,8 @@ screen = pygame.display.set_mode((1435, 1000))
 x = 25
 y = 0
 o = 10
-a = 10
-d = 10
+a = 0
+d = 500
 p = 0
 pipe_group = pygame.sprite.Group()
 coin_group = pygame.sprite.Group()
@@ -29,10 +29,6 @@ Bname = menu.Press(30, 10, Name)
 # game objects
 main_player = pygame.image.load('Objects/flappy.png').convert_alpha()
 main_player = pygame.transform.scale(main_player, (170, 100))
-point = pygame.image.load('Objects/coin.png').convert_alpha()
-point = pygame.transform.scale(point, (100, 90))
-point2 = pygame.image.load('Objects/coolcoin.png').convert_alpha()
-point2 = pygame.transform.scale(point2, (70, 10))
 
 
 # pipe class
@@ -51,23 +47,25 @@ class Pipe(pygame.sprite.Sprite):
         self.rect.x += self.velocity
 
 
-# class Coin(pygame.sprite.Sprite):
-#     def __init__(self, a, d):
-#         super().__init__()
-#         point = pygame.image.load('Objects/coin.png').convert_alpha()
-#         self.rect = point.get_rect()
-#         self.rect.topleft = (a, d)
-#         self.velocity = -5
-#
-#     def update(self):
-#         self.rect.x += self.velocity
+# coin class
+class Coin(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super().__init__()
+        self.image = pygame.image.load('Objects/coin.png').convert_alpha()
+        self.image = pygame.transform.scale(self.image, (100, 90))
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (x, y)
+        self.velocity = -5
+
+    def update(self):
+        self.rect.x += self.velocity
+
 
 # main game loop
 running = True
 clock = pygame.time.Clock()
 
 while running:
-
     screen.fill((239, 239, 239))
 
     # menu screen mode
@@ -80,7 +78,9 @@ while running:
     # game screen mode
     if play_space == "game":
         screen.blit(main_player, (x, y))
-        screen.blit(point, (a, d))
+
+        coin_group.update()
+        coin_group.draw(screen)
         pipe_group.update()
         pipe_group.draw(screen)
 
@@ -94,7 +94,7 @@ while running:
         for point in coin_group:
             if hit_box.colliderect(point.rect):
                 p += 1
-                # (destroy that one coin)
+                point.kill()
                 print(p)
                 print("money")
 
@@ -112,6 +112,9 @@ while running:
                 pipe_group.add(pipeB)
                 pipe_group.add(pipeT)
 
+        if random.randint(1, 100) == 1:
+            coin_group.add(Coin(1435, random.randint(200, 800)))
+
     # player movement
     keys = pygame.key.get_pressed()
     y += 4
@@ -121,9 +124,26 @@ while running:
     if keys[pygame.K_DOWN] or keys[pygame.K_s]:
         y += o
 
+    # game over screen
     if play_space == "over":
-        bob = pygame.image.load('Objects/flappy.png').convert_alpha()
-        bob = pygame.transform.scale(bob, (170, 100))
+        a += 10
+        # main_player.kill()
+        # pipe.kill()
+        fakeplayer = pygame.image.load('Objects/flappy.png').convert_alpha()
+        fakeplayer = pygame.transform.scale(fakeplayer, (470, 300))
+        fakeplayer = pygame.transform.rotate(fakeplayer, 200)
+        Retry = pygame.image.load('Objects/play_N.png').convert_alpha()
+
+        Retry = pygame.transform.rotate(Retry, -10)
+        Btry = menu.Press(950, 640, Retry)
+        screen.blit(fakeplayer, (d, a))
+
+        if play_space == "over":
+            if Btry.draw(screen):
+                x = 25
+                y = 0
+
+                play_space = "game"
 
     # quit screen
     for event in pygame.event.get():
