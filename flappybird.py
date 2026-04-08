@@ -2,20 +2,17 @@
 import pygame
 import random
 import menu
-random.random()
 pygame.init()
 screen = pygame.display.set_mode((1435, 1000))
-
 
 # vars
 x = 25
 y = 0
 o = 10
-z = 300
-a = 330
+a = 10
+d = 10
 pipe_group = pygame.sprite.Group()
 play_space = "main"
-
 
 # main menu
 pygame.display.set_caption('Flappy Bird: Absolute Remixed')
@@ -27,87 +24,89 @@ Play = pygame.transform.rotate(Play, -10)
 Bstart = menu.Press(950, 640, Play)
 Bname = menu.Press(30, 10, Name)
 
-
 # game objects
 main_player = pygame.image.load('Objects/flappy.png').convert_alpha()
 main_player = pygame.transform.scale(main_player, (170, 100))
+point = pygame.image.load('Objects/coin.png').convert_alpha()
+point = pygame.transform.scale(point, (70, 10))
+point2 = pygame.image.load('Objects/coolcoin.png').convert_alpha()
+point2 = pygame.transform.scale(point2, (70, 10))
 
-pipe = pygame.image.load('Objects/pipe.png').convert_alpha()
 
-
-# pipe math
+# pipe class
 class Pipe(pygame.sprite.Sprite):
     def __init__(self, x, y, flipped=False):
-        pygame.sprite.Sprite.__init__(self)
+        super().__init__()
         self.image = pygame.image.load('Objects/pipe.png').convert_alpha()
+        if flipped:
+            self.image = pygame.transform.flip(self.image, False, True)
+
         self.rect = self.image.get_rect()
-        self.rect.topleft = (z, a)
-        self.velocity = -.5
+        self.rect.topleft = (x, y)
+        self.velocity = -5
 
     def update(self):
-        self.rect.y += self.velocity
+        self.rect.x += self.velocity
 
 
 # main game loop
 running = True
 clock = pygame.time.Clock()
+
 while running:
 
-    # screen base setup
     screen.fill((239, 239, 239))
 
-    # menu setup screen
+    # menu screen mode
     if play_space == "main":
         Bname.draw(screen)
+        y-= 30
         if Bstart.draw(screen):
             play_space = "game"
-            print("yay")
+
+    # game screen mode
     if play_space == "game":
         screen.blit(main_player, (x, y))
+        screen.blit(point, (a, d))
         pipe_group.update()
         pipe_group.draw(screen)
 
-    # hit-box logic & pipe mov
-    if play_space == "game":
+        # hit_box logic
         hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
         for pipe in pipe_group:
             if hit_box.colliderect(pipe.rect):
-                # print("yahoo")
-                new_pipe = Pipe(pipe.rect.x, pipe.rect.y, flipped=True)
-                pipe_group.add(new_pipe)
+                play_space = "over"
+                print("yahoo")
 
-        # spawn pipe
-        z -= 1
-        for i in range(1):
-            if random.randint(1, 100) == 1:
-                pipe_group.add(Pipe(1600, random.randint(0, 500)))
+        # spawn top bottom pipe
+        if random.randint(1, 60) == 1:
+            pipe_x = 1435
+            gap = 250
+            bottom_y = random.randint(400, 700)
 
-    # mov pipe
-        pipe = Pipe(400, -20)
-        pipe_group.add(pipe)
+            pipeB = Pipe(pipe_x, bottom_y, flipped=False)
+            pipeT = Pipe(pipe_x, bottom_y - gap - pipeB.image.get_height(), flipped=True)
 
-    # player inputs
+            pipe_group.add(pipeB)
+            pipe_group.add(pipeT)
+
+    # player movement
     keys = pygame.key.get_pressed()
     y += 4
 
-    if keys[pygame.K_UP]:
+    if keys[pygame.K_UP] or keys[pygame.K_w]:
         y -= o
-    if keys[pygame.K_DOWN]:
-        y += o
-    if keys[pygame.K_w]:
-        y -= o
-    if keys[pygame.K_s]:
+    if keys[pygame.K_DOWN] or keys[pygame.K_s]:
         y += o
 
-    # allows the play window to be cut
+    # if play_space == "over":
+
+    # quit screen
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    # displays everything on the window
     pygame.display.flip()
-
-    # fps
     clock.tick(90)
 
 pygame.quit()
