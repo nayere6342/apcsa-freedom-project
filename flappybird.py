@@ -118,10 +118,17 @@ while running:
         if random.randint(1, 100) == 1:
             coin_group.add(Coin(1435, random.randint(200, 800)))
 
-    # player movement
+    # player controls
     keys = pygame.key.get_pressed()
     y += 4
 
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE and p >= 10:
+                play_space = "game"
+                print("booyah")
+
+    # mov
     if keys[pygame.K_UP] or keys[pygame.K_w]:
         y -= o
     if keys[pygame.K_DOWN] or keys[pygame.K_s]:
@@ -137,11 +144,17 @@ while running:
         fake_player = pygame.transform.rotate(fake_player, 1600)
 
         Over = pygame.image.load('Objects/over.png').convert_alpha()
-        Over = pygame.transform.scale(Over, (420, 200))
+        Over = pygame.transform.scale(Over, (1200, 500))
 
         Retry = pygame.image.load('Objects/retry.png').convert_alpha()
-        Btry = menu.Press(950, 640, Retry)
 
+        F = pygame.font.SysFont('Arial', 30)
+        T = F.render('Points: ' + str(p), True, (220, 46, 191))
+        T = pygame.transform.scale(T, (300, 100))
+
+        screen.blit(T, (0, 500))
+        Btry = menu.Press(950, 640, Retry)
+        screen.blit(Over, (10, 10))
         screen.blit(fake_player, (d, a))
 
         for pipe in pipe_group:
