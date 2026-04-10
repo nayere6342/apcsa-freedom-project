@@ -18,12 +18,13 @@ play_space = "main"
 
 # main menu
 pygame.display.set_caption('Flappy Bird: Absolute Remixed')
-Play = pygame.image.load('Objects/play_N.png').convert_alpha()
+Play = pygame.image.load('Objects/play.png').convert_alpha()
 Name = pygame.image.load('Objects/title.png').convert_alpha()
 Name = pygame.transform.scale(Name, (670, 550))
+Play = pygame.transform.scale(Play, (420, 200))
 Play = pygame.transform.rotate(Play, -10)
 
-Bstart = menu.Press(950, 640, Play)
+Bstart = menu.Press(950, 580, Play)
 Bname = menu.Press(30, 10, Name)
 
 # game objects
@@ -70,7 +71,7 @@ while running:
 
     # menu screen mode
     if play_space == "main":
-        y = 300
+        y = 0
         Bname.draw(screen)
         if Bstart.draw(screen):
             play_space = "game"
@@ -86,6 +87,7 @@ while running:
 
         # hit_box logic
         hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
+
         for pipe in pipe_group:
             if hit_box.colliderect(pipe.rect):
                 play_space = "over"
@@ -101,6 +103,7 @@ while running:
         # spawn top bottom pipe
         if random.randint(1, 60) == 1:
             pipe_x = 1435
+
             # prevent overlap (only spawn if last pipe is far enough)
             if len(pipe_group) == 0 or pipe_group.sprites()[-1].rect.x < 1000:
                 gap = 350
@@ -127,22 +130,30 @@ while running:
     # game over screen
     if play_space == "over":
         a += 10
-        # main_player.kill()
-        # pipe.kill()
-        fakeplayer = pygame.image.load('Objects/flappy.png').convert_alpha()
-        fakeplayer = pygame.transform.scale(fakeplayer, (470, 300))
-        fakeplayer = pygame.transform.rotate(fakeplayer, 200)
-        Retry = pygame.image.load('Objects/play_N.png').convert_alpha()
+        d = 500
 
-        Retry = pygame.transform.rotate(Retry, -10)
+        fake_player = pygame.image.load('Objects/flappy.png').convert_alpha()
+        fake_player = pygame.transform.scale(fake_player, (470, 300))
+        fake_player = pygame.transform.rotate(fake_player, 1600)
+
+        Over = pygame.image.load('Objects/over.png').convert_alpha()
+        Over = pygame.transform.scale(Over, (420, 200))
+
+        Retry = pygame.image.load('Objects/retry.png').convert_alpha()
         Btry = menu.Press(950, 640, Retry)
-        screen.blit(fakeplayer, (d, a))
+
+        screen.blit(fake_player, (d, a))
+
+        for pipe in pipe_group:
+            pipe.kill()
+        for point in coin_group:
+            point.kill()
 
         if play_space == "over":
             if Btry.draw(screen):
-                x = 25
                 y = 0
-
+                a = 0
+                p = 0
                 play_space = "game"
 
     # quit screen
