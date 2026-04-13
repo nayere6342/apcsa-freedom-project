@@ -16,13 +16,15 @@
     
 - [x] UI and Art (deadline: 2/10)
 
-- [ ] Basic Powerup System (deadline: 4/8)
+- [x] Basic Powerup System (deadline: 4/8)
 
 
 #### Beyond MVP
 
-- [ ] Basic VFX (deadline: 4/3)
+- [ ] Basic VFX
 
+- [ ] Make a Webpage
+    
 - [ ] Sound Effects 
   - [ ] Particle physics _(if possible)_
 
