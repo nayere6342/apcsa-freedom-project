@@ -15,9 +15,13 @@
 - [x] Title Screens (deadline: 4/1)
     
 - [x] UI and Art (deadline: 2/10)
-  - [ ] Basic VFX (deadline: 4/3)
+
+- [ ] Basic Powerup System (deadline: 4/8)
+
 
 #### Beyond MVP
+
+- [ ] Basic VFX (deadline: 4/3)
 
 - [ ] Sound Effects 
   - [ ] Particle physics _(if possible)_
