@@ -1,4 +1,4 @@
-# Entry #5: _PyGame _
+# Entry #5: _PyGame Aftermath_
 ## Flappy Bird: Absolute Remixed
 ## Nayer Ebraheim
 ## 4/13/26
@@ -53,8 +53,6 @@
 * [Pygame Patch Notes](https://www.pygame.org/news)
 
 * [Pygame Wiki](https://www.pygame.org/wiki/)
-
-* [Pygame Video Tutorials](https://www.youtube.com/@DaFluffyPotato/videos)
 
 * [APCSA Notes](https://docs.google.com/document/d/1T4-EjM0x1HFrLtcUZF7B3Krb1lLYcnjwKDmR2nVX4wE/edit?tab=t.0#heading=h.g70gkuk13014)
 ---
