@@ -207,7 +207,7 @@ How this code works is simple first of all is the main menu, this shows two thin
             play_space = "game"
 ```
 
-On to the next one; hitboxs are simpler then I throught, how it works is like this: if two sprites are on top of each other, add a condition that only triggers if it happens. And that it! all you need to make a hitbox. here is that snippet
+On to the next one; hitboxs are simpler then I throught, how it works is like this: if two sprites are on top of each other, add a condition that only triggers if it happens. And that it! all you need to make a hitbox. here is that code snippet: How to works is as follows the first thing that is defined is the player hitbox and that is based on the sprite size. So for example, if the sprite size is `100px, 100px` then the hitbox size will be the same. After that a for loop is created to listen to for that hitbox. In total two are created one for the pipes and one for the coins. The pipe hitbox is also simple saying if the hitbox touchs the sprite for the pipe. It will bring them to the game over screen. (ignore the print statment that was just for testing.) By the time all that is finished another for loop is created that deals with coin in the game. When the player hits a coin it first adds one point to the score then it gets destroyed.    
 
 ```py
 hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
