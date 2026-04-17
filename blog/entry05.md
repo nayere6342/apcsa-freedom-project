@@ -5,7 +5,7 @@
 
 ### Intro:
 
-
+The aftermath of my project is good. I got through all of my MVP deadlines and was able to put that into my project and get it to work. The main thing I wanted to try and fix first was the pipe movement logic so that the main loop of the game could work. Another one I had to solve was the lag because .   
 
 ### Code Presentation:
 
@@ -49,8 +49,6 @@
     * [Pygame Full Repo](https://github.com/pygame)
 
     * [Pygame Examples](https://github.com/pygame/pygame/tree/main/examples)
-
-* [Pygame Patch Notes](https://www.pygame.org/news)
 
 * [Pygame Wiki](https://www.pygame.org/wiki/)
 
