@@ -225,6 +225,43 @@ hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
                 print("money")
 ```
 
+The last section of my code is the game over screen this is how it works, a fake player is made for the screen as a added effect then the game over text is shown with the amount of point the player got while in the game. Once that is all rendered in, the retry button is shown to the player letting them start over again. here is all that code:
+```py
+# game over screen
+    if play_space == "over":
+        a += 10
+        d = 500
+
+        fake_player = pygame.image.load('Objects/flappy.png').convert_alpha()
+        fake_player = pygame.transform.scale(fake_player, (470, 300))
+        fake_player = pygame.transform.rotate(fake_player, 1600)
+
+        Over = pygame.image.load('Objects/over.png').convert_alpha()
+        Over = pygame.transform.scale(Over, (1200, 500))
+
+        Retry = pygame.image.load('Objects/retry.png').convert_alpha()
+
+        F = pygame.font.SysFont('Arial', 30)
+        T = F.render('Points: ' + str(p), True, (220, 46, 191))
+        T = pygame.transform.scale(T, (300, 100))
+
+        screen.blit(T, (0, 500))
+        Btry = menu.Press(950, 640, Retry)
+        screen.blit(Over, (10, 10))
+        screen.blit(fake_player, (d, a))
+
+        for pipe in pipe_group:
+            pipe.kill()
+        for point in coin_group:
+            point.kill()
+
+        if play_space == "over":
+            if Btry.draw(screen):
+                y = 0
+                a = 0
+                p = 0
+                play_space = "game"
+```
 
 
 ### Challenges & Takeaways:
