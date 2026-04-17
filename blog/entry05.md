@@ -9,7 +9,7 @@ The aftermath of my project is was good. I got through all of my MVP deadlines a
 
 ### Code Presentation:
 
-Moving on, the game can be broken down into three part: First the main menu is shown to the player. Which if done, will render everything to the player, the pipe, etc. After that is the main game loop, how it works is simple it handles everything in the game to the gravity to the collision detection system with the player and the pipe.   
+Moving on, the game can be broken down into three part: First the main menu is shown to the player. Which if done, will render everything to the player, the pipe, etc. After that is the main game loop, how it works is simple it handles everything in the game to the gravity to the collision detection system with the player and the pipe. Once that is done, their is another system is place so that if the player dies in the game a game over screen will pop-up and show how many points they got. Which will bring the player back the main loop (so not the main menu) so that they can start again. Here is the full code to the game.    
     
 **Preview:**
 ```py
@@ -197,9 +197,33 @@ pygame.quit()
 
 ### Design Process:
 
-  
+How this code works is simple first of all is the main menu, this shows two thing the title and the play button: how it work is like this, if the player is in the play screen main (which shows all the ui) draw the ui element onto the screen. After that another if statments is shown saying if the start button is drawn onto the screen (there is anther file giving it logic) and the player clicks it. The game will render all the objects onto the screen. 
 
-### Skills / Reflation: 
+```py
+    if play_space == "main":
+        y = 0
+        Bname.draw(screen)
+        if Bstart.draw(screen):
+            play_space = "game"
+```
+
+On to the next one; hitboxs are simpler then I throught, how it works is like this: if two sprites are on top of each other, add a condition that only triggers if it happens. And that it! all you need to make a hitbox. here is that snippet
+
+```py
+hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
+
+        for pipe in pipe_group:
+            if hit_box.colliderect(pipe.rect):
+                play_space = "over"
+                print("yahoo")
+
+        for point in coin_group:
+            if hit_box.colliderect(point.rect):
+                p += 1
+                point.kill()
+                print(p)
+                print("money")
+```
 
 
 
@@ -215,9 +239,7 @@ pygame.quit()
   
     * Since, without a clear plan I wouldn't be able to know what to do with the game or even the MVP. Just because flappy bird is a simple game doesn't mean I should have a plan on what I should do. 
 
-* The last takeaway from this was that I needed to tinker with `pygame` to help me to understand how to use it.
-  
-    * In order to truly understand it since a lot of the code I know how to write is just JS. So being able to learn Python is important for me. 
+* Last takeaway I needed to stop stressing over the little things and foces on the bigger things which is something I would have done differently  
  
 
 ---
