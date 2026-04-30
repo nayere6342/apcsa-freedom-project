@@ -1,16 +1,16 @@
 # Presentation Plan
 
 ## Hook
-* 
+* Talk about the flappy bird game and how the fp is related to it
 
 ## Product
-* 
+* Show how it works by video/game display  
 
 ## Process
-* 
+* break down the game through 3 step process and talk about the challenges    
 
 ## Conclusion
-* 
+* talk about the challenges     
 
 <!-- EXAMPLE
 
