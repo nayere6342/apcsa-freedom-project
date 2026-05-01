@@ -64,6 +64,7 @@ class Coin(pygame.sprite.Sprite):
 
 # main game loop
 running = True
+paused = False
 clock = pygame.time.Clock()
 
 while running:
@@ -79,6 +80,12 @@ while running:
     # game screen mode
     if play_space == "game":
         screen.blit(main_player, (x, y))
+
+        # point display
+        F = pygame.font.SysFont('Arial', 30)
+        T = F.render('Points: ' + str(p), True, (220, 46, 191))
+        T = pygame.transform.scale(T, (300, 100))
+        screen.blit(T, (0, 10))
 
         coin_group.update()
         coin_group.draw(screen)
@@ -122,17 +129,37 @@ while running:
     keys = pygame.key.get_pressed()
     y += 4
 
+    # pause/play/quit
+    if keys[pygame.K_ESCAPE]:
+        play_space = "main"
+
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE and p >= 10:
-                play_space = "game"
-                print("booyah")
+            if event.key == pygame.K_TAB:
+                A = pygame.font.SysFont('Arial', 30)
+                ZZ = A.render('Paused! ', True, (220, 46, 191))
+                ZZ = pygame.transform.scale(ZZ, (600, 300))
+                screen.blit(ZZ, (500, 300))
+                pygame.display.flip()
+                clock.tick(.1)
 
     # mov
     if keys[pygame.K_UP] or keys[pygame.K_w]:
         y -= o
     if keys[pygame.K_DOWN] or keys[pygame.K_s]:
         y += o
+
+    # powerup system
+    if p >= 10:
+        screen.blit(drink, (x, y))
+        drink = pygame.image.load('Objects/sillyb_juice.png').convert_alpha()
+        drink = pygame.transform.scale(drink, (70, 70))
+
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    play_space = "game"
+                    print("booyah")
 
     # game over screen
     if play_space == "over":
@@ -176,5 +203,6 @@ while running:
 
     pygame.display.flip()
     clock.tick(90)
+
 
 pygame.quit()
