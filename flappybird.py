@@ -107,11 +107,11 @@ while running:
                 print(p)
                 print("money")
 
-        # spawn top bottom pipe
+        # spawn top and bottom pipe
         if random.randint(1, 60) == 1:
             pipe_x = 1435
 
-            # prevent overlap (only spawn if last pipe is far enough)
+            # space with pipe
             if len(pipe_group) == 0 or pipe_group.sprites()[-1].rect.x < 1000:
                 gap = 350
                 bottom_y = random.randint(400, 700)
@@ -131,7 +131,7 @@ while running:
 
     # pause/play/quit
     if keys[pygame.K_ESCAPE]:
-        play_space = "main"
+        play_space = "main" 
 
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
@@ -142,6 +142,7 @@ while running:
                 screen.blit(ZZ, (500, 300))
                 pygame.display.flip()
                 clock.tick(.1)
+                
 
     # mov
     if keys[pygame.K_UP] or keys[pygame.K_w]:
