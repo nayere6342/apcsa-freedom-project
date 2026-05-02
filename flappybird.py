@@ -11,15 +11,18 @@ y = 0
 o = 10
 a = 0
 d = 500
-p = 40
+p = 10
 f = 90
 b = 0
+ref = 0
 xc = 1
-powerplay = True
+powerplay = 0
 pf1 = 1500
-pf2 = 720
+pf2 = 20
 pf3 = 1500
 pf4 = 1500
+ref = 3000
+xf = 0
 
 pipe_group = pygame.sprite.Group()
 coin_group = pygame.sprite.Group()
@@ -35,6 +38,8 @@ Play = pygame.transform.rotate(Play, -10)
 
 Bstart = menu.Press(950, 580, Play)
 Bname = menu.Press(30, 10, Name)
+
+# info menu
 
 # game objects
 main_player = pygame.image.load('Objects/flappy.png').convert_alpha()
@@ -73,7 +78,6 @@ class Coin(pygame.sprite.Sprite):
 
 # main game loop
 running = True
-
 clock = pygame.time.Clock()
 
 while running:
@@ -101,6 +105,17 @@ while running:
         T = pygame.transform.scale(T, (300, 100))
         screen.blit(T, (0, 10))
 
+        xr = random.randint(1, 300)
+
+        # game speed up
+        if xr == 300 or xr <= 50:
+            if p >= 20 and xf == 1:
+                f += 10
+                print(f)
+                xf = 0
+            if p >= 20 and xr >= 100:
+                xf = 1
+
         # hit_box logic
         hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
 
@@ -117,14 +132,16 @@ while running:
                 print(p)
                 print("money")
 
-        # spawn top bottom pipe
+        # spawn top + bottom pipe
         if random.randint(1, 60) == 1:
             pipe_x = 1435
 
-            # prevent overlap (only spawn if last pipe is far enough)
+            # stops overlap
             if len(pipe_group) == 0 or pipe_group.sprites()[-1].rect.x < 1000:
                 gap = 350
                 bottom_y = random.randint(400, 700)
+                # bottom_x = random.randint(300, 100)
+                # bottom_y2 = random.randint(-400, -700)
 
                 pipeB = Pipe(pipe_x, bottom_y, flipped=False)
                 pipeT = Pipe(pipe_x, bottom_y - gap - pipeB.image.get_height(), flipped=True)
@@ -132,6 +149,7 @@ while running:
                 pipe_group.add(pipeB)
                 pipe_group.add(pipeT)
 
+        # erm
         if random.randint(1, 100) == 1:
             coin_group.add(Coin(1435, random.randint(200, 800)))
 
@@ -163,43 +181,41 @@ while running:
         y += o
 
     # powerup system
+    ref -= 100
+    # becomes invincible (silly billy juice)
+    if p >= 10 and b <= 1 and powerplay == 0 and ref <= 0:
+        if keys[pygame.K_1]:
+            pf1 -= 1
+            drink = pygame.image.load('Objects/sillyb_juice.png').convert_alpha()
+            drink = pygame.transform.scale(drink, (70, 70))
+            screen.blit(drink, (x+20, y))
+            print(pf1)
 
-    # extra life (silly billy juice)
-    if p >= 10 and b <= 1:
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_1:
-                    pf1 -= 1
-                    drink = pygame.image.load('Objects/sillyb_juice.png').convert_alpha()
-                    drink = pygame.transform.scale(drink, (70, 70))
-                    screen.blit(drink, (x+20, y))
-                    print(pf1)
+            if xc == 1:
+                play_space = "game"
 
-                    if xc == 1:
-                        play_space = "game"
+            if pf1 <= 0:
+                U = pygame.font.SysFont('Arial', 30)
+                TT = U.render('Power Down! ', True, (46, 220, 128))
+                TT = pygame.transform.scale(TT, (300, 200))
+                screen.blit(TT, (150, 540))
+                b = 0
+                xc = 0
+                pf = 1500
+                ref = 3000
 
-                    if pf1 <= 0:
-                        U = pygame.font.SysFont('Arial', 30)
-                        TT = U.render('Power Down! ', True, (46, 220, 128))
-                        TT = pygame.transform.scale(TT, (300, 200))
-                        screen.blit(TT, (150, 540))
-                        b = 0
-                        xc = 0
-                        pf = 1500
-
-    # double points (cool coin)
-    if p >= 40:
+    # point boost (cool coin)
+    if p >= 40 and powerplay == 0 and ref <= 0:
         if keys[pygame.K_2]:
             pf2 -= 1
+
             double = pygame.image.load('Objects/coolcoin.png').convert_alpha()
             double = pygame.transform.scale(double, (70, 70))
             screen.blit(double, (x, y-5))
             print(pf2)
 
             if xc == 1:
-                for point in coin_group:
-                    if hit_box.colliderect(point.rect):
-                        p += 1
+                p += 1
 
             if pf2 <= 0:
                 U = pygame.font.SysFont('Arial', 30)
@@ -208,10 +224,12 @@ while running:
                 screen.blit(TT, (150, 540))
                 b = 0
                 xc = 0
-                pf = 720
+                pf = 20
+                ref = 3000
 
     # game over screen
     if play_space == "over":
+        powerplay = 1
         a += 10
         d = 500
 
@@ -245,6 +263,12 @@ while running:
                 p = 0
                 b = 0
                 xc = 1
+                pf1 = 1500
+                pf2 = 20
+                pf3 = 1500
+                pf4 = 1500
+                powerplay = 0
+                f = 90
                 play_space = "game"
 
     # quit screen
@@ -252,8 +276,13 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+
+
+    # fps
     pygame.display.flip()
     clock.tick(f)
+
+
 
 
 pygame.quit()
