@@ -11,11 +11,16 @@ y = 0
 o = 10
 a = 0
 d = 500
-p = 9
+p = 40
 f = 90
 b = 0
 xc = 1
-pf = 5
+powerplay = True
+pf1 = 1500
+pf2 = 720
+pf3 = 1500
+pf4 = 1500
+
 pipe_group = pygame.sprite.Group()
 coin_group = pygame.sprite.Group()
 play_space = "main"
@@ -68,7 +73,7 @@ class Coin(pygame.sprite.Sprite):
 
 # main game loop
 running = True
-paused = False
+
 clock = pygame.time.Clock()
 
 while running:
@@ -101,8 +106,8 @@ while running:
 
         for pipe in pipe_group:
             if hit_box.colliderect(pipe.rect):
-                play_space = "over"
                 b = 1
+                play_space = "over"
                 print("yahoo")
 
         for point in coin_group:
@@ -138,11 +143,14 @@ while running:
     if keys[pygame.K_ESCAPE]:
         play_space = "main"
 
+    if keys[pygame.K_q]:
+        running = False
+
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_TAB:
+            if event.key == pygame.K_TAB and play_space == "game":
                 A = pygame.font.SysFont('Arial', 30)
-                ZZ = A.render('Paused! ', True, (220, 46, 191))
+                ZZ = A.render('Paused! ', True, (220, 215, 46))
                 ZZ = pygame.transform.scale(ZZ, (600, 300))
                 screen.blit(ZZ, (500, 300))
                 pygame.display.flip()
@@ -157,19 +165,50 @@ while running:
     # powerup system
 
     # extra life (silly billy juice)
-    if p >= 10 and b >= 1:
-        pf -= 1
-        drink = pygame.image.load('Objects/sillyb_juice.png').convert_alpha()
-        drink = pygame.transform.scale(drink, (70, 70))
-        screen.blit(drink, (x-10, y))
-        print(pf)
-        if xc == 1:
-            play_space = "game"
+    if p >= 10 and b <= 1:
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_1:
+                    pf1 -= 1
+                    drink = pygame.image.load('Objects/sillyb_juice.png').convert_alpha()
+                    drink = pygame.transform.scale(drink, (70, 70))
+                    screen.blit(drink, (x+20, y))
+                    print(pf1)
 
-        if pf <= 0:
-            b = 0
-            xc = 0
-            pf = 5
+                    if xc == 1:
+                        play_space = "game"
+
+                    if pf1 <= 0:
+                        U = pygame.font.SysFont('Arial', 30)
+                        TT = U.render('Power Down! ', True, (46, 220, 128))
+                        TT = pygame.transform.scale(TT, (300, 200))
+                        screen.blit(TT, (150, 540))
+                        b = 0
+                        xc = 0
+                        pf = 1500
+
+    # double points (cool coin)
+    if p >= 40:
+        if keys[pygame.K_2]:
+            pf2 -= 1
+            double = pygame.image.load('Objects/coolcoin.png').convert_alpha()
+            double = pygame.transform.scale(double, (70, 70))
+            screen.blit(double, (x, y-5))
+            print(pf2)
+
+            if xc == 1:
+                for point in coin_group:
+                    if hit_box.colliderect(point.rect):
+                        p += 1
+
+            if pf2 <= 0:
+                U = pygame.font.SysFont('Arial', 30)
+                TT = U.render('Power Down! ', True, (46, 220, 128))
+                TT = pygame.transform.scale(TT, (300, 200))
+                screen.blit(TT, (150, 540))
+                b = 0
+                xc = 0
+                pf = 720
 
     # game over screen
     if play_space == "over":
@@ -205,7 +244,7 @@ while running:
                 a = 0
                 p = 0
                 b = 0
-                xc = 0
+                xc = 1
                 play_space = "game"
 
     # quit screen
