@@ -11,7 +11,11 @@ y = 0
 o = 10
 a = 0
 d = 500
-p = 0
+p = 9
+f = 90
+b = 0
+xc = 1
+pf = 5
 pipe_group = pygame.sprite.Group()
 coin_group = pygame.sprite.Group()
 play_space = "main"
@@ -81,16 +85,16 @@ while running:
     if play_space == "game":
         screen.blit(main_player, (x, y))
 
+        coin_group.update()
+        coin_group.draw(screen)
+        pipe_group.update()
+        pipe_group.draw(screen)
+
         # point display
         F = pygame.font.SysFont('Arial', 30)
         T = F.render('Points: ' + str(p), True, (220, 46, 191))
         T = pygame.transform.scale(T, (300, 100))
         screen.blit(T, (0, 10))
-
-        coin_group.update()
-        coin_group.draw(screen)
-        pipe_group.update()
-        pipe_group.draw(screen)
 
         # hit_box logic
         hit_box = pygame.Rect(x, y, main_player.get_width(), main_player.get_height())
@@ -98,6 +102,7 @@ while running:
         for pipe in pipe_group:
             if hit_box.colliderect(pipe.rect):
                 play_space = "over"
+                b = 1
                 print("yahoo")
 
         for point in coin_group:
@@ -107,11 +112,11 @@ while running:
                 print(p)
                 print("money")
 
-        # spawn top and bottom pipe
+        # spawn top bottom pipe
         if random.randint(1, 60) == 1:
             pipe_x = 1435
 
-            # space with pipe
+            # prevent overlap (only spawn if last pipe is far enough)
             if len(pipe_group) == 0 or pipe_group.sprites()[-1].rect.x < 1000:
                 gap = 350
                 bottom_y = random.randint(400, 700)
@@ -131,7 +136,7 @@ while running:
 
     # pause/play/quit
     if keys[pygame.K_ESCAPE]:
-        play_space = "main" 
+        play_space = "main"
 
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
@@ -142,7 +147,6 @@ while running:
                 screen.blit(ZZ, (500, 300))
                 pygame.display.flip()
                 clock.tick(.1)
-                
 
     # mov
     if keys[pygame.K_UP] or keys[pygame.K_w]:
@@ -151,16 +155,21 @@ while running:
         y += o
 
     # powerup system
-    if p >= 10:
-        screen.blit(drink, (x, y))
+
+    # extra life (silly billy juice)
+    if p >= 10 and b >= 1:
+        pf -= 1
         drink = pygame.image.load('Objects/sillyb_juice.png').convert_alpha()
         drink = pygame.transform.scale(drink, (70, 70))
+        screen.blit(drink, (x-10, y))
+        print(pf)
+        if xc == 1:
+            play_space = "game"
 
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    play_space = "game"
-                    print("booyah")
+        if pf <= 0:
+            b = 0
+            xc = 0
+            pf = 5
 
     # game over screen
     if play_space == "over":
@@ -195,6 +204,8 @@ while running:
                 y = 0
                 a = 0
                 p = 0
+                b = 0
+                xc = 0
                 play_space = "game"
 
     # quit screen
@@ -203,7 +214,7 @@ while running:
             running = False
 
     pygame.display.flip()
-    clock.tick(90)
+    clock.tick(f)
 
 
 pygame.quit()
