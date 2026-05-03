@@ -11,7 +11,7 @@ y = 0
 o = 10
 a = 0
 d = 500
-p = 130
+p = 0
 f = 90
 
 # powerup timers
@@ -38,14 +38,25 @@ play_space = "main"
 pygame.display.set_caption('Flappy Bird: Absolute Remixed')
 Play = pygame.image.load('Objects/play.png').convert_alpha()
 Name = pygame.image.load('Objects/title.png').convert_alpha()
+fake_player = pygame.image.load('Objects/flappy.png').convert_alpha()
+fake_player2 = pygame.image.load('Objects/flappy.png').convert_alpha()
+fake_player3 = pygame.image.load('Objects/flappy.png').convert_alpha()
+
+fake_player = pygame.transform.scale(fake_player, (170, 120))
+fake_player = pygame.transform.rotate(fake_player, -90)
+fake_player2 = pygame.transform.scale(fake_player2, (170, 120))
+fake_player2 = pygame.transform.rotate(fake_player2, -90)
+fake_player3 = pygame.transform.scale(fake_player3, (170, 120))
+fake_player3 = pygame.transform.rotate(fake_player3, -90)
 Name = pygame.transform.scale(Name, (670, 550))
 Play = pygame.transform.scale(Play, (420, 200))
 Play = pygame.transform.rotate(Play, -10)
 
 Bstart = menu.Press(950, 580, Play)
-Bname = menu.Press(30, 10, Name)
-
-# info menu
+Bname = menu.Press(100, 20, Name)
+Fplay = menu.Press(20, 600, fake_player)
+Fplay2 = menu.Press(20, 80, fake_player2)
+Fplay3 = menu.Press(20, 300, fake_player3)
 
 
 # game objects
@@ -94,6 +105,9 @@ while running:
     if play_space == "main":
         y = 0
         Bname.draw(screen)
+        Fplay.draw(screen)
+        Fplay2.draw(screen)
+        Fplay3.draw(screen)
         if Bstart.draw(screen):
             play_space = "game"
 
