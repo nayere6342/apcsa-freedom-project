@@ -41,6 +41,9 @@ Name = pygame.image.load('Objects/title.png').convert_alpha()
 fake_player = pygame.image.load('Objects/flappy.png').convert_alpha()
 fake_player2 = pygame.image.load('Objects/flappy.png').convert_alpha()
 fake_player3 = pygame.image.load('Objects/flappy.png').convert_alpha()
+fake_pipe = pygame.image.load('Objects/pipe.png').convert_alpha()
+fake_pipe2 = pygame.image.load('Objects/pipe.png').convert_alpha()
+fake_juice = pygame.image.load('Objects/sillyb_juice.png').convert_alpha()
 
 fake_player = pygame.transform.scale(fake_player, (170, 120))
 fake_player = pygame.transform.rotate(fake_player, -90)
@@ -48,16 +51,22 @@ fake_player2 = pygame.transform.scale(fake_player2, (170, 120))
 fake_player2 = pygame.transform.rotate(fake_player2, -90)
 fake_player3 = pygame.transform.scale(fake_player3, (170, 120))
 fake_player3 = pygame.transform.rotate(fake_player3, -90)
+fake_pipe = pygame.transform.rotate(fake_pipe, 90)
+fake_pipe2 = pygame.transform.rotate(fake_pipe2, 90)
+fake_juice = pygame.transform.rotate(fake_juice, 30)
+fake_juice = pygame.transform.scale(fake_juice, (170, 150))
 Name = pygame.transform.scale(Name, (670, 550))
 Play = pygame.transform.scale(Play, (420, 200))
 Play = pygame.transform.rotate(Play, -10)
 
 Bstart = menu.Press(950, 580, Play)
-Bname = menu.Press(100, 20, Name)
-Fplay = menu.Press(20, 600, fake_player)
-Fplay2 = menu.Press(20, 80, fake_player2)
-Fplay3 = menu.Press(20, 300, fake_player3)
-
+Bname = menu.Press(150, 20, Name)
+Fplay = menu.Press(20, 700, fake_player)
+Fplay2 = menu.Press(20, -60, fake_player2)
+Fplay3 = menu.Press(20, 200, fake_player3)
+Fpipe = menu.Press(1100, 10, fake_pipe)
+Fpipe2 = menu.Press(1250, 300, fake_pipe2)
+FJ = menu.Press(780, 120, fake_juice)
 
 # game objects
 main_player = pygame.image.load('Objects/flappy.png').convert_alpha()
@@ -108,6 +117,9 @@ while running:
         Fplay.draw(screen)
         Fplay2.draw(screen)
         Fplay3.draw(screen)
+        Fpipe.draw(screen)
+        Fpipe2.draw(screen)
+        FJ.draw(screen)
         if Bstart.draw(screen):
             play_space = "game"
 
@@ -134,7 +146,7 @@ while running:
                 f += 10
                 print(f)
                 xf = 0
-            if p >= 20 and xr >= 100:
+            if p >= 40 and xr >= 100:
                 xf = 1
 
         # hit_box logic
@@ -148,7 +160,7 @@ while running:
 
         for point in coin_group:
             if hit_box.colliderect(point.rect):
-                p += 10
+                p += 1
                 point.kill()
                 print(p)
                 print("money")
