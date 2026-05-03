@@ -5,30 +5,36 @@ import menu
 pygame.init()
 screen = pygame.display.set_mode((1435, 1000))
 
-# vars
+# starter vars
 x = 25
 y = 0
 o = 10
 a = 0
 d = 500
-p = 10
+p = 130
 f = 90
-b = 0
-ref = 0
-xc = 1
-powerplay = 0
-pf1 = 1500
-pf2 = 20
-pf3 = 1500
-pf4 = 1500
-ref = 3000
-xf = 0
 
+# powerup timers
+pf1 = 1500
+pf2 = 40
+pf3 = 2200
+ref = 3000
+
+# powerup vars
+powerplay = 1
+xc = 1
+b = 0
+xf = 0
+sx = 170
+sy = 100
+
+# object array
 pipe_group = pygame.sprite.Group()
 coin_group = pygame.sprite.Group()
-play_space = "main"
 
 # main menu
+play_space = "over"
+
 pygame.display.set_caption('Flappy Bird: Absolute Remixed')
 Play = pygame.image.load('Objects/play.png').convert_alpha()
 Name = pygame.image.load('Objects/title.png').convert_alpha()
@@ -41,9 +47,10 @@ Bname = menu.Press(30, 10, Name)
 
 # info menu
 
+
 # game objects
 main_player = pygame.image.load('Objects/flappy.png').convert_alpha()
-main_player = pygame.transform.scale(main_player, (170, 100))
+main_player = pygame.transform.scale(main_player, (sx, sy))
 
 
 # pipe class
@@ -82,7 +89,7 @@ clock = pygame.time.Clock()
 
 while running:
     screen.fill((239, 239, 239))
-
+    powerplay = 0
     # menu screen mode
     if play_space == "main":
         y = 0
@@ -94,6 +101,7 @@ while running:
     if play_space == "game":
         screen.blit(main_player, (x, y))
 
+        # object mov + update
         coin_group.update()
         coin_group.draw(screen)
         pipe_group.update()
@@ -105,9 +113,8 @@ while running:
         T = pygame.transform.scale(T, (300, 100))
         screen.blit(T, (0, 10))
 
+        # fps speed up
         xr = random.randint(1, 300)
-
-        # game speed up
         if xr == 300 or xr <= 50:
             if p >= 20 and xf == 1:
                 f += 10
@@ -127,7 +134,7 @@ while running:
 
         for point in coin_group:
             if hit_box.colliderect(point.rect):
-                p += 1
+                p += 10
                 point.kill()
                 print(p)
                 print("money")
@@ -136,7 +143,7 @@ while running:
         if random.randint(1, 60) == 1:
             pipe_x = 1435
 
-            # stops overlap
+            # pipe surface
             if len(pipe_group) == 0 or pipe_group.sprites()[-1].rect.x < 1000:
                 gap = 350
                 bottom_y = random.randint(400, 700)
@@ -149,7 +156,7 @@ while running:
                 pipe_group.add(pipeB)
                 pipe_group.add(pipeT)
 
-        # erm
+        # coin spawn randomness
         if random.randint(1, 100) == 1:
             coin_group.add(Coin(1435, random.randint(200, 800)))
 
@@ -174,18 +181,20 @@ while running:
                 pygame.display.flip()
                 clock.tick(.1)
 
-    # mov
+    # player mov
     if keys[pygame.K_UP] or keys[pygame.K_w]:
         y -= o
     if keys[pygame.K_DOWN] or keys[pygame.K_s]:
         y += o
 
     # powerup system
-    ref -= 100
+    ref -= 50
+
     # becomes invincible (silly billy juice)
-    if p >= 10 and b <= 1 and powerplay == 0 and ref <= 0:
+    if p >= 20 and b <= 1 and powerplay == 0 and ref <= 0:
         if keys[pygame.K_1]:
             pf1 -= 1
+
             drink = pygame.image.load('Objects/sillyb_juice.png').convert_alpha()
             drink = pygame.transform.scale(drink, (70, 70))
             screen.blit(drink, (x+20, y))
@@ -196,16 +205,24 @@ while running:
 
             if pf1 <= 0:
                 U = pygame.font.SysFont('Arial', 30)
-                TT = U.render('Power Down! ', True, (46, 220, 128))
+                TT = U.render('!!! ', True, (46, 220, 128))
                 TT = pygame.transform.scale(TT, (300, 200))
-                screen.blit(TT, (150, 540))
+                screen.blit(TT, (0, 650))
                 b = 0
                 xc = 0
-                pf = 1500
+                pf1 = 1500
                 ref = 3000
+    if powerplay == 0 and play_space == "game":
+        SBJ = pygame.image.load('Objects/J_locked.png').convert_alpha()
+        SBJ = pygame.transform.scale(SBJ, (174, 148))
+        screen.blit(SBJ, (0, 700))
+    if p >= 20 and play_space == "game":
+        SBJ = pygame.image.load('Objects/J_unlocked.png').convert_alpha()
+        SBJ = pygame.transform.scale(SBJ, (174, 148))
+        screen.blit(SBJ, (2, 700))
 
     # point boost (cool coin)
-    if p >= 40 and powerplay == 0 and ref <= 0:
+    if p >= 90 and powerplay == 0 and ref <= 0:
         if keys[pygame.K_2]:
             pf2 -= 1
 
@@ -224,14 +241,57 @@ while running:
                 screen.blit(TT, (150, 540))
                 b = 0
                 xc = 0
-                pf = 20
+                pf2 = 40
                 ref = 3000
+    if powerplay == 0 and play_space == "game":
+        CC = pygame.image.load('Objects/C_locked.png').convert_alpha()
+        CC = pygame.transform.scale(CC, (174, 148))
+        screen.blit(CC, (140, 700))
+    if p >= 90 and play_space == "game":
+        CC = pygame.image.load('Objects/C_unlocked.png').convert_alpha()
+        CC = pygame.transform.scale(CC, (174, 148))
+        screen.blit(CC, (142, 700))
+
+    # smaller size (cool coin)
+    if p >= 140 and powerplay == 0 and ref <= 0:
+        if keys[pygame.K_3]:
+            pf3 -= 1
+
+            double = pygame.image.load('Objects/orb.png').convert_alpha()
+            double = pygame.transform.scale(double, (70, 70))
+            screen.blit(double, (x, y-5))
+            print(pf3)
+
+            if xc == 1:
+                sx = 70
+                sy = 70
+                main_player = pygame.transform.scale(main_player, (sx, sy))
+
+            if pf3 <= 0:
+                U = pygame.font.SysFont('Arial', 30)
+                TT = U.render('Power Down! ', True, (46, 220, 128))
+                TT = pygame.transform.scale(TT, (300, 200))
+                screen.blit(TT, (550, 0))
+                b = 0
+                xc = 0
+                pf3 = 2200
+                ref = 3000
+                sx = 170
+                sy = 100
+    if powerplay == 0 and play_space == "game":
+        OB = pygame.image.load('Objects/O_locked.png').convert_alpha()
+        OB = pygame.transform.scale(OB, (174, 148))
+        screen.blit(OB, (300, 700))
+    if p >= 140 and play_space == "game":
+        OB = pygame.image.load('Objects/O_unlocked.png').convert_alpha()
+        OB = pygame.transform.scale(OB, (174, 148))
+        screen.blit(OB, (302, 700))
 
     # game over screen
     if play_space == "over":
         powerplay = 1
         a += 10
-        d = 500
+        d = 470
 
         fake_player = pygame.image.load('Objects/flappy.png').convert_alpha()
         fake_player = pygame.transform.scale(fake_player, (470, 300))
@@ -246,9 +306,9 @@ while running:
         T = F.render('Points: ' + str(p), True, (220, 46, 191))
         T = pygame.transform.scale(T, (300, 100))
 
-        screen.blit(T, (0, 500))
-        Btry = menu.Press(950, 640, Retry)
-        screen.blit(Over, (10, 10))
+        screen.blit(T, (0, 700))
+        Btry = menu.Press(500, 540, Retry)
+        screen.blit(Over, (100, 10))
         screen.blit(fake_player, (d, a))
 
         for pipe in pipe_group:
@@ -269,6 +329,8 @@ while running:
                 pf4 = 1500
                 powerplay = 0
                 f = 90
+                sx = 170
+                sy = 100
                 play_space = "game"
 
     # quit screen
@@ -276,13 +338,10 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-
-
     # fps
     pygame.display.flip()
     clock.tick(f)
 
 
-
-
 pygame.quit()
+
