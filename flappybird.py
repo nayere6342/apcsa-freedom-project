@@ -33,7 +33,7 @@ pipe_group = pygame.sprite.Group()
 coin_group = pygame.sprite.Group()
 
 # main menu
-play_space = "over"
+play_space = "main"
 
 pygame.display.set_caption('Flappy Bird: Absolute Remixed')
 Play = pygame.image.load('Objects/play.png').convert_alpha()
@@ -207,7 +207,7 @@ while running:
                 U = pygame.font.SysFont('Arial', 30)
                 TT = U.render('!!! ', True, (46, 220, 128))
                 TT = pygame.transform.scale(TT, (300, 200))
-                screen.blit(TT, (0, 650))
+                screen.blit(TT, (300, 350))
                 b = 0
                 xc = 0
                 pf1 = 1500
@@ -236,9 +236,9 @@ while running:
 
             if pf2 <= 0:
                 U = pygame.font.SysFont('Arial', 30)
-                TT = U.render('Power Down! ', True, (46, 220, 128))
+                TT = U.render('!!! ', True, (46, 220, 128))
                 TT = pygame.transform.scale(TT, (300, 200))
-                screen.blit(TT, (150, 540))
+                screen.blit(TT, (300, 350))
                 b = 0
                 xc = 0
                 pf2 = 40
@@ -269,9 +269,9 @@ while running:
 
             if pf3 <= 0:
                 U = pygame.font.SysFont('Arial', 30)
-                TT = U.render('Power Down! ', True, (46, 220, 128))
+                TT = U.render('!!! ', True, (46, 220, 128))
                 TT = pygame.transform.scale(TT, (300, 200))
-                screen.blit(TT, (550, 0))
+                screen.blit(TT, (300, 350))
                 b = 0
                 xc = 0
                 pf3 = 2200
